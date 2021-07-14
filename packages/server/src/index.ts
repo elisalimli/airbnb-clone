@@ -3,10 +3,11 @@ import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import express from "express";
 import { buildSchema } from "type-graphql";
-import { redis, sessionMiddleware } from "./utils";
+import { isProduction, redis, sessionMiddleware } from "./utils";
 import { RegisterResolver } from "./graphql/resolvers";
 import { graphqlHTTP } from "express-graphql";
 import expressPlayground from "graphql-playground-middleware-express";
+import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
 
 const PORT = process.env.PORT || 4000;
 
@@ -27,6 +28,7 @@ const main = async () => {
     resolvers: [
       // Mutations
       RegisterResolver,
+      LoginResolver,
       //Queries
     ],
     validate: false,
@@ -63,7 +65,7 @@ const main = async () => {
         prisma,
         redis,
       },
-      graphiql: true,
+      graphiql: !isProduction,
     }))
   );
   app.get("/graphql", expressPlayground({ endpoint: "/graphiql" }));

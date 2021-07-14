@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { error } from "./error";
 import { MyContext } from "../../../../types/MyContext";
 import { formatYupError } from "../../../../utils";
-import { RegisterResponse } from "./response";
+import { RegistrationResponse } from "../../../shared/RegistrationResponse";
 import { RegisterInput } from "./input";
 
 const schema = yup.object().shape({
@@ -24,24 +24,21 @@ const schema = yup.object().shape({
 @Resolver(User)
 export class RegisterResolver {
   @Query(() => [User], { nullable: true })
-  async allUsers(@Ctx() { prisma, req }: MyContext) {
+  async allUsers(@Ctx() { prisma, req }: MyContext): Promise<User[]> {
     console.log("sead", req.session.userId);
     console.log("asdsad");
     const users = await prisma.user.findMany();
     return users;
   }
 
-  @Mutation(() => RegisterResponse)
+  @Mutation(() => RegistrationResponse)
   async register(
     @Arg("input") input: RegisterInput,
     @Ctx() { req, prisma }: MyContext
-  ): Promise<RegisterResponse> {
-    // const user = await prisma.user.create({
-    //   data: input,
-    // });
+  ): Promise<RegistrationResponse> {
     try {
       await schema.validate(input, { abortEarly: false });
-    } catch (err: any) {
+    } catch (err) {
       return {
         ok: false,
         errors: formatYupError(err),
@@ -57,7 +54,7 @@ export class RegisterResolver {
           password: hashedPassword,
         },
       });
-    } catch (err: any) {
+    } catch (err) {
       console.log(err);
       if (err.code === "P2002") {
         // get which field duplicate
@@ -86,11 +83,11 @@ export class RegisterResolver {
 
     //store user id in session
     //keep logged in user
-    req.session.userId = user?.id!;
+    req.session.userId = user.id;
 
     return {
       ok: true,
-      user: user as any,
+      user,
     };
   }
 }
