@@ -25,10 +25,7 @@ const schema = yup.object().shape({
 export class RegisterResolver {
   @Query(() => [User], { nullable: true })
   async allUsers(@Ctx() { prisma, req }: MyContext): Promise<User[]> {
-    console.log("sead", req.session.userId);
-    console.log("asdsad");
-    const users = await prisma.user.findMany();
-    return users;
+    return prisma.user.findMany();
   }
 
   @Mutation(() => RegistrationResponse)

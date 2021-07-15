@@ -8,6 +8,8 @@ import { RegisterResolver } from "./graphql/resolvers";
 import { graphqlHTTP } from "express-graphql";
 import expressPlayground from "graphql-playground-middleware-express";
 import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
+import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
+import { MeResolver } from "./graphql/resolvers/user/me/resolver";
 
 const PORT = process.env.PORT || 4000;
 
@@ -29,7 +31,9 @@ const main = async () => {
       // Mutations
       RegisterResolver,
       LoginResolver,
+      LogoutResolver,
       //Queries
+      MeResolver,
     ],
     validate: false,
   });

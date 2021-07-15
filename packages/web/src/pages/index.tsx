@@ -1,7 +1,17 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import ProtectedRoute from "../components/utils/ProtectedRoute";
 
 const Home = () => {
-  return <div>Hello world</div>;
+  const [queryClient] = React.useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ProtectedRoute>
+        <div>Hello world</div>
+      </ProtectedRoute>
+    </QueryClientProvider>
+  );
 };
 
 export default Home;

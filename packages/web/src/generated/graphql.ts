@@ -1,27 +1,12 @@
+import { GraphQLClient } from 'graphql-request';
 import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from 'react-query';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 
-function fetcher<TData, TVariables>(endpoint: string, requestInit: RequestInit, query: string, variables?: TVariables) {
-  return async (): Promise<TData> => {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      ...requestInit,
-      body: JSON.stringify({ query, variables }),
-    });
-
-    const json = await res.json();
-
-    if (json.errors) {
-      const { message } = json.errors[0];
-
-      throw new Error(message);
-    }
-
-    return json.data;
-  }
+function fetcher<TData, TVariables>(client: GraphQLClient, query: string, variables?: TVariables) {
+  return async (): Promise<TData> => client.request<TData, TVariables>(query, variables);
 }
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -41,9 +26,16 @@ export type FieldError = {
   message: Scalars['String'];
 };
 
+export type LoginInput = {
+  usernameOrEmail: Scalars['String'];
+  password: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
-  register: RegisterResponse;
+  register: RegistrationResponse;
+  login: RegistrationResponse;
+  logout: Scalars['Boolean'];
 };
 
 
@@ -51,9 +43,15 @@ export type MutationRegisterArgs = {
   input: RegisterInput;
 };
 
+
+export type MutationLoginArgs = {
+  input: LoginInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   allUsers?: Maybe<Array<User>>;
+  me?: Maybe<User>;
 };
 
 export type RegisterInput = {
@@ -62,8 +60,8 @@ export type RegisterInput = {
   password: Scalars['String'];
 };
 
-export type RegisterResponse = {
-  __typename?: 'RegisterResponse';
+export type RegistrationResponse = {
+  __typename?: 'RegistrationResponse';
   ok: Scalars['Boolean'];
   errors?: Maybe<Array<FieldError>>;
   user?: Maybe<User>;
@@ -78,6 +76,28 @@ export type User = {
   updatedAt: Scalars['DateTime'];
 };
 
+export type ErrorFragmentFragment = (
+  { __typename?: 'FieldError' }
+  & Pick<FieldError, 'field' | 'message'>
+);
+
+export type RegistrationFragmentFragment = (
+  { __typename?: 'RegistrationResponse' }
+  & Pick<RegistrationResponse, 'ok'>
+  & { errors?: Maybe<Array<(
+    { __typename?: 'FieldError' }
+    & ErrorFragmentFragment
+  )>>, user?: Maybe<(
+    { __typename?: 'User' }
+    & UserFragmentFragment
+  )> }
+);
+
+export type UserFragmentFragment = (
+  { __typename?: 'User' }
+  & Pick<User, 'id' | 'username'>
+);
+
 export type RegisterMutationVariables = Exact<{
   input: RegisterInput;
 }>;
@@ -86,75 +106,81 @@ export type RegisterMutationVariables = Exact<{
 export type RegisterMutation = (
   { __typename?: 'Mutation' }
   & { register: (
-    { __typename?: 'RegisterResponse' }
-    & Pick<RegisterResponse, 'ok'>
-    & { errors?: Maybe<Array<(
-      { __typename?: 'FieldError' }
-      & Pick<FieldError, 'field' | 'message'>
-    )>>, user?: Maybe<(
-      { __typename?: 'User' }
-      & Pick<User, 'id' | 'email' | 'username'>
-    )> }
+    { __typename?: 'RegistrationResponse' }
+    & RegistrationFragmentFragment
   ) }
 );
 
-export type AllUsersQueryVariables = Exact<{ [key: string]: never; }>;
+export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllUsersQuery = (
+export type MeQuery = (
   { __typename?: 'Query' }
-  & { allUsers?: Maybe<Array<(
+  & { me?: Maybe<(
     { __typename?: 'User' }
-    & Pick<User, 'id' | 'email'>
-  )>> }
+    & UserFragmentFragment
+  )> }
 );
 
-
+export const ErrorFragmentFragmentDoc = `
+    fragment ErrorFragment on FieldError {
+  field
+  message
+}
+    `;
+export const UserFragmentFragmentDoc = `
+    fragment UserFragment on User {
+  id
+  username
+}
+    `;
+export const RegistrationFragmentFragmentDoc = `
+    fragment RegistrationFragment on RegistrationResponse {
+  ok
+  errors {
+    ...ErrorFragment
+  }
+  user {
+    ...UserFragment
+  }
+}
+    ${ErrorFragmentFragmentDoc}
+${UserFragmentFragmentDoc}`;
 export const RegisterDocument = `
     mutation Register($input: RegisterInput!) {
   register(input: $input) {
-    ok
-    errors {
-      field
-      message
-    }
-    user {
-      id
-      email
-      username
-    }
+    ...RegistrationFragment
   }
 }
-    `;
+    ${RegistrationFragmentFragmentDoc}`;
 export const useRegisterMutation = <
       TError = unknown,
       TContext = unknown
     >(
-      dataSource: { endpoint: string, fetchParams?: RequestInit }, 
+      client: GraphQLClient, 
       options?: UseMutationOptions<RegisterMutation, TError, RegisterMutationVariables, TContext>
     ) => 
     useMutation<RegisterMutation, TError, RegisterMutationVariables, TContext>(
-      (variables?: RegisterMutationVariables) => fetcher<RegisterMutation, RegisterMutationVariables>(dataSource.endpoint, dataSource.fetchParams || {}, RegisterDocument, variables)(),
+      (variables?: RegisterMutationVariables) => fetcher<RegisterMutation, RegisterMutationVariables>(client, RegisterDocument, variables)(),
       options
     );
-export const AllUsersDocument = `
-    query AllUsers {
-  allUsers {
-    id
-    email
+export const MeDocument = `
+    query Me {
+  me {
+    ...UserFragment
   }
 }
-    `;
-export const useAllUsersQuery = <
-      TData = AllUsersQuery,
+    ${UserFragmentFragmentDoc}`;
+export const useMeQuery = <
+      TData = MeQuery,
       TError = unknown
     >(
-      dataSource: { endpoint: string, fetchParams?: RequestInit }, 
-      variables?: AllUsersQueryVariables, 
-      options?: UseQueryOptions<AllUsersQuery, TError, TData>
+      client: GraphQLClient, 
+      variables?: MeQueryVariables, 
+      options?: UseQueryOptions<MeQuery, TError, TData>
     ) => 
-    useQuery<AllUsersQuery, TError, TData>(
-      ['AllUsers', variables],
-      fetcher<AllUsersQuery, AllUsersQueryVariables>(dataSource.endpoint, dataSource.fetchParams || {}, AllUsersDocument, variables),
+    useQuery<MeQuery, TError, TData>(
+      ['Me', variables],
+      fetcher<MeQuery, MeQueryVariables>(client, MeDocument, variables),
       options
     );

@@ -1,7 +1,8 @@
 import Head from "next/head";
+import { FC } from "react";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+const MyApp: FC<any> = ({ Component, pageProps }) => {
   // createPageProgressBar();
 
   return (
@@ -15,6 +16,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </>
   );
-}
+};
 
 export default MyApp;
