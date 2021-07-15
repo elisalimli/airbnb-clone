@@ -1,9 +1,7 @@
 import { Formik } from "formik";
-import router from "next/dist/client/router";
 import Head from "next/head";
 import React from "react";
-import { MeQuery, MeDocument } from "../../../generated/graphql";
-import register from "../../../pages/register";
+import Button from "../../../ui/Button";
 import InputField from "../../../ui/Form/Input/InputField";
 
 interface FormValues {
@@ -52,18 +50,17 @@ const RegisterView: React.FC = () => {
                 label="Password"
                 type="password"
               />
-              {/* <Button
-              fontWeight="normal"
-              variant="primary"
-              width={175}
-              height={40}
-              extraClassName="mt-4"
-              loading={isSubmitting}
-              centered
-              type="submit"
-            >
-              Register
-            </Button> */}
+              <Button
+                fontWeight="normal"
+                variant="primary"
+                width={175}
+                height={40}
+                isLoading={true}
+                centered
+                type="submit"
+              >
+                Register
+              </Button>
             </div>
           )}
         </Formik>

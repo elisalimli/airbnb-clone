@@ -27,7 +27,7 @@ const InputField: React.FC<InputFieldProps> = ({
       {label ? <Label htmlFor={field.name}>{label}</Label> : null}
       <div className={wrapperClassName}>
         <input
-          className="w-full border-default border-gray-200 rounded-8 p-2 focus:border-transparent focus:ring-2 focus:ring-primary outline-no-chrome"
+          className="w-full border-default border-gray-200 rounded-8 p-2 focus:border-transparent focus:ring-2 ring-pink focus:ring-primary outline-no-chrome"
           {...field}
           {...props}
           id={field.name}

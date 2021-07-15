@@ -62,11 +62,16 @@ module.exports = {
       transparent: "transparent",
       primary: {
         DEFAULT: "var(--color-primary)",
+        hover: "var(--color-primary-hover)",
+        disabled: "var(--color-primary-disabled)",
       },
       gray: {
         100: "#C5CCD6",
         200: "#9DA3B4",
       },
+    },
+    ringColor: {
+      primary: "var(--color-primary-disabled)",
     },
     minWidth: {
       0: "0",
@@ -125,6 +130,7 @@ module.exports = {
       outline: {
         "no-chrome": "none",
       },
+      cursor: ["hover", "focus", "disabled"],
     },
   },
   variants: {
