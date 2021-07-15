@@ -7,10 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "gen": "graphql-codegen --config codegen.yml"
+    "gen": "graphql-codegen --config codegen.yml",
+    "test-lerna": "echo testing server with version: $npm_package_version"
   },
   "dependencies": {
     "@graphql-tools/batch-execute": "^7.1.0",
+    "formik": "^2.2.9",
     "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",
     "next": "latest",
