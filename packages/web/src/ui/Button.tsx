@@ -1,9 +1,4 @@
-import React, {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  HTML,
-  useMemo,
-} from "react";
+import React, { ButtonHTMLAttributes, useMemo } from "react";
 import { FontWeightProps } from "./shared/classNames";
 import Spinner from "./Spinner";
 

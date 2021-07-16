@@ -1,16 +1,16 @@
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import Head from "next/head";
 import React from "react";
+import { FormikSubmit } from "../../../types/types";
 import Button from "../../../ui/Button";
 import InputField from "../../../ui/Form/Input/InputField";
+import { FormValues } from "../RegisterConnector";
 
-interface FormValues {
-  username: string;
-  email: string;
-  password: string;
+interface Props {
+  handleSubmit: FormikSubmit<FormValues>;
 }
 
-const RegisterView: React.FC = () => {
+const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
   return (
     <div>
       <Head>
@@ -20,10 +20,13 @@ const RegisterView: React.FC = () => {
       <div style={{ maxWidth: 300 }} className="mx-auto">
         <Formik<FormValues>
           initialValues={{ username: "", email: "", password: "" }}
-          onSubmit={async (values, { setErrors }) => {}}
+          onSubmit={() => {
+            console.log("submit!");
+          }}
+          validator={() => ({})}
         >
           {({ isSubmitting }) => (
-            <div>
+            <Form>
               {/* <Header
               headerType="h1"
               centered
@@ -60,7 +63,7 @@ const RegisterView: React.FC = () => {
               >
                 Register
               </Button>
-            </div>
+            </Form>
           )}
         </Formik>
       </div>
