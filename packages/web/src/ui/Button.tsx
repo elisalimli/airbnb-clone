@@ -1,6 +1,16 @@
-import React, { ButtonHTMLAttributes, useMemo, useState } from "react";
-import Loader from "./Loader";
+import React, {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  HTML,
+  useMemo,
+} from "react";
 import { FontWeightProps } from "./shared/classNames";
+import Spinner from "./Spinner";
+
+const sizeClassnames = {
+  big: "py-2 px-6 text-sm rounded-lg",
+  small: "px-2 py-1 text-xs rounded-md",
+};
 
 const styles = {
   general:
@@ -9,34 +19,32 @@ const styles = {
     primary:
       "bg-primary hover:bg-primary-hover disabled:bg-primary-disabled focus:ring-primary",
   },
+  center: "flex items-center justify-center",
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   FontWeightProps & {
     isLoading?: boolean;
     centered?: boolean;
-    width?: number;
-    height?: number;
+    size?: keyof typeof sizeClassnames;
     variant?: keyof typeof styles.variants;
-    // display:block;
+    wrapperClassname?: string;
   };
 
 const Button: React.FC<ButtonProps> = ({
   isLoading,
   centered,
-  width,
-  height,
+  size,
   variant = "primary",
-
+  wrapperClassname = "",
   children,
-
   ...props
 }) => {
   const buttonStyles = useMemo(
     () => ({
-      wrapper: `${centered && "flex justify-center"}`,
-      button: `${styles.general} ${styles.variants[variant]}`,
-      loading: isLoading ? "opacity-0" : "flex items-center justify-center",
+      wrapper: `${centered && "flex justify-center"} ${wrapperClassname}`,
+      button: `${styles.general} ${styles.variants[variant]} ${styles.center} ${sizeClassnames[size]}`,
+      loading: isLoading ? "opacity-0" : null,
     }),
     [isLoading]
   );
@@ -44,30 +52,15 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <div className={buttonStyles.wrapper}>
       <button
-        style={{
-          width,
-          height,
-        }}
         className={buttonStyles.button}
         disabled={isLoading}
         type="button"
         {...props}
       >
-        {/* {isLoading ? null : (
-          <span className={buttonStyles.loading}>{children}</span>
-        )}
+        <span className={buttonStyles.loading}>{children}</span>
         {isLoading ? (
           <span className="absolute">
-            <Loader />
-          </span>
-        ) : null} */}
-
-        <span className={isLoading ? "opacity-0" : `flex items-center`}>
-          {children}
-        </span>
-        {isLoading ? (
-          <span className={`absolute`}>
-            <Loader />
+            <Spinner />
           </span>
         ) : null}
       </button>

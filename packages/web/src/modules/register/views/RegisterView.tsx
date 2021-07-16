@@ -51,13 +51,12 @@ const RegisterView: React.FC = () => {
                 type="password"
               />
               <Button
-                fontWeight="normal"
+                size="big"
+                wrapperClassname="mt-4"
                 variant="primary"
-                width={175}
-                height={40}
-                isLoading={true}
                 centered
                 type="submit"
+                isLoading={isSubmitting}
               >
                 Register
               </Button>
