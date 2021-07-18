@@ -11,8 +11,11 @@
     "test-lerna": "echo testing server with version: $npm_package_version"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.21",
     "formik": "^2.2.9",
+    "graphql": "^15.5.1",
     "next": "latest",
+    "next-apollo": "^5.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loader-spinner": "^4.0.0"
