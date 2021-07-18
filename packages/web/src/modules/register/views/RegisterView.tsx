@@ -20,13 +20,10 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
       <div style={{ maxWidth: 300 }} className="mx-auto">
         <Formik<FormValues>
           initialValues={{ username: "", email: "", password: "" }}
-          onSubmit={() => {
-            console.log("submit!");
-          }}
-          validator={() => ({})}
+          onSubmit={handleSubmit}
         >
           {({ isSubmitting }) => (
-            <Form>
+            <Form noValidate>
               {/* <Header
               headerType="h1"
               centered

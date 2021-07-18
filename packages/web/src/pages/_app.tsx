@@ -1,8 +1,11 @@
 import Head from "next/head";
 import { FC } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import "../styles/globals.css";
 
-const MyApp: FC<any> = ({ Component, pageProps }) => {
+const client = new QueryClient();
+
+const MyApp = ({ Component, pageProps }) => {
   // createPageProgressBar();
 
   return (
@@ -13,7 +16,9 @@ const MyApp: FC<any> = ({ Component, pageProps }) => {
           content="width=device-width,initial-scale=1,user-scalable=no,user-scalable=0"
         />
       </Head>
-      <Component {...pageProps} />
+      <QueryClientProvider contextSharing client={client}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </>
   );
 };

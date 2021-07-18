@@ -1,22 +1,12 @@
 import React from "react";
+import { client } from "../../client";
+import { useMeQuery } from "../../generated/graphql";
 
-const query = `
-query {
-  allUsers {
-    id
-    email
-  }
-}
-`;
+const ProtectedRoute: React.FC = (props) => {
+  const { data, isLoading } = useMeQuery(client);
+  console.log("data", data, props.posts);
 
-const ProtectedRoute: React.FC = ({ children }) => {
-  // const client = new GraphQLClient("http://localhost:4000/graphiql", {});
-  // client.request(query, {}).then((data) => console.log(data));
-
-  // const data = useMeQuery(client, {});
-  // console.log("data", data);
-
-  return children;
+  return props.children;
 };
 
 export default ProtectedRoute;

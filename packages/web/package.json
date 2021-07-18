@@ -11,21 +11,13 @@
     "test-lerna": "echo testing server with version: $npm_package_version"
   },
   "dependencies": {
-    "@graphql-tools/batch-execute": "^7.1.0",
     "formik": "^2.2.9",
-    "graphql": "^15.5.1",
-    "graphql-request": "^3.4.0",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-loader-spinner": "^4.0.0",
-    "react-query": "^3.18.1"
+    "react-loader-spinner": "^4.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.21.6",
-    "@graphql-codegen/typescript": "1.23.0",
-    "@graphql-codegen/typescript-operations": "1.18.4",
-    "@graphql-codegen/typescript-react-query": "^1.3.5",
     "@types/node": "^16.3.2",
     "@types/react": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^4.28.3",

@@ -1,15 +1,19 @@
-import "reflect-metadata";
 import { PrismaClient } from "@prisma/client";
+import { ApolloServer } from "apollo-server-express";
 import cors from "cors";
 import express from "express";
+import "reflect-metadata";
 import { buildSchema } from "type-graphql";
-import { isProduction, redis, sessionMiddleware } from "./utils";
 import { RegisterResolver } from "./graphql/resolvers";
-import { graphqlHTTP } from "express-graphql";
-import expressPlayground from "graphql-playground-middleware-express";
 import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
 import { MeResolver } from "./graphql/resolvers/user/me/resolver";
+import { MyContext } from "./types/MyContext";
+import { isProduction, redis, sessionMiddleware } from "./utils";
+import {
+  ApolloServerPluginLandingPageGraphQLPlayground,
+  ApolloServerPluginLandingPageDisabled,
+} from "apollo-server-core";
 
 const PORT = process.env.PORT || 4000;
 
@@ -59,20 +63,27 @@ const main = async () => {
     ],
   });
 
-  app.use(
-    "/graphiql",
-    graphqlHTTP((req, res) => ({
-      schema,
-      context: {
-        req,
-        res,
-        prisma,
-        redis,
-      },
-      graphiql: !isProduction,
-    }))
-  );
-  app.get("/graphql", expressPlayground({ endpoint: "/graphiql" }));
+  const apolloServer = new ApolloServer({
+    schema,
+    context: ({ req, res }): MyContext => ({
+      req: req as any,
+      res: res as any,
+      prisma,
+      redis,
+    }),
+    plugins: [
+      isProduction
+        ? ApolloServerPluginLandingPageDisabled
+        : ApolloServerPluginLandingPageGraphQLPlayground,
+    ],
+  });
+
+  await apolloServer.start();
+
+  apolloServer.applyMiddleware({
+    app,
+    cors: false,
+  });
 
   app.listen(PORT, () => {
     console.log(`server listening on port ${PORT}`);
