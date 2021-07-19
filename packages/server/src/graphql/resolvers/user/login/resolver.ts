@@ -1,7 +1,7 @@
 import argon2 from "argon2";
 import { Arg, Ctx, Mutation, Resolver } from "type-graphql";
 import * as yup from "yup";
-import { error } from "../register/error";
+// import { error } from "../register/error";
 import { User } from "../../../models/User";
 import { MyContext } from "../../../../types/MyContext";
 import { formatYupError } from "../../../../utils";
@@ -9,11 +9,11 @@ import { FieldError } from "../../../shared/FieldError";
 import { LoginInput } from "./input";
 import { RegistrationResponse } from "../../../shared/RegistrationResponse";
 
-const { shortUsername, shortPassword } = error;
+// const { shortUsername, shortPassword } = error;
 
 const schema = yup.object().shape({
-  usernameOrEmail: yup.string().min(2, shortUsername),
-  password: yup.string().min(3, shortPassword),
+  usernameOrEmail: yup.string().min(2, "shortUsername"),
+  password: yup.string().min(3, "shortPassword"),
 });
 
 @Resolver(User)

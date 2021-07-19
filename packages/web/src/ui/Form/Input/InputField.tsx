@@ -20,7 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({
   children,
   ...props
 }) => {
-  const [field, { error }] = useField(props);
+  const [field, { error, touched }] = useField(props);
 
   return (
     <>
@@ -35,7 +35,7 @@ const InputField: React.FC<InputFieldProps> = ({
         {children}
       </div>
 
-      {error ? (
+      {error && touched ? (
         <div className="text-primary mt-1 ml-0.5 text-sm">{error}</div>
       ) : null}
     </>

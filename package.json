@@ -1,9 +1,11 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "version": "0.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "version": "1.0.0",
   "dependencies": {
     "graphql": "^15.5.0"
   },
@@ -11,8 +13,7 @@
     "@graphql-codegen/cli": "1.21.7",
     "@graphql-codegen/typescript": "1.23.0",
     "@graphql-codegen/typescript-operations": "1.18.4",
-    "@graphql-codegen/typescript-react-apollo": "2.3.1",
-    "graphql-cli": "4.1.0"
+    "@graphql-codegen/typescript-react-apollo": "2.3.1"
   },
   "scripts": {
     "gen": "graphql-codegen --config codegen.yml"

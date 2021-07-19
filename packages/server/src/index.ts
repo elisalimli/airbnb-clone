@@ -1,8 +1,12 @@
+import "reflect-metadata";
 import { PrismaClient } from "@prisma/client";
+import {
+  ApolloServerPluginLandingPageDisabled,
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} from "apollo-server-core";
 import { ApolloServer } from "apollo-server-express";
 import cors from "cors";
 import express from "express";
-import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { RegisterResolver } from "./graphql/resolvers";
 import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
@@ -10,10 +14,6 @@ import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
 import { MeResolver } from "./graphql/resolvers/user/me/resolver";
 import { MyContext } from "./types/MyContext";
 import { isProduction, redis, sessionMiddleware } from "./utils";
-import {
-  ApolloServerPluginLandingPageGraphQLPlayground,
-  ApolloServerPluginLandingPageDisabled,
-} from "apollo-server-core";
 
 const PORT = process.env.PORT || 4000;
 

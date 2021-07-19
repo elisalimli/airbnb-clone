@@ -9,7 +9,7 @@ const sizeClassnames = {
 
 const styles = {
   general:
-    "text-button rounded-5 font-semibold transition-colors duration-300 select-none focus:ring-4",
+    "text-button rounded-5 font-semibold transition-colors duration-300 select-none focus:ring-4 outline-no-chrome",
   variants: {
     primary:
       "bg-primary hover:bg-primary-hover disabled:bg-primary-disabled focus:ring-primary",

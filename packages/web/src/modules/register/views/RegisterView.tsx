@@ -5,6 +5,7 @@ import { FormikSubmit } from "../../../types/types";
 import Button from "../../../ui/Button";
 import InputField from "../../../ui/Form/Input/InputField";
 import { FormValues } from "../RegisterConnector";
+import { registerSchema } from "@abb/common";
 
 interface Props {
   handleSubmit: FormikSubmit<FormValues>;
@@ -21,6 +22,7 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
         <Formik<FormValues>
           initialValues={{ username: "", email: "", password: "" }}
           onSubmit={handleSubmit}
+          validationSchema={registerSchema}
         >
           {({ isSubmitting }) => (
             <Form noValidate>
