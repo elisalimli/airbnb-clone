@@ -7,3 +7,6 @@ package-lock.json
 .next/
 *.log
 *.lock
+.yarn
+.yarnrc.yml
+.pnp.js
