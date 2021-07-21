@@ -1,7 +1,13 @@
 import React from "react";
+import ProtectedRoute from "../ui/utils/ProtectedRoute";
+import { withApollo } from "../utils/withApollo";
 
 const Home = () => {
-  return <div>username </div>;
+  return (
+    <ProtectedRoute>
+      <div>username </div>
+    </ProtectedRoute>
+  );
 };
 
-export default Home;
+export default withApollo({ ssr: true })(Home);

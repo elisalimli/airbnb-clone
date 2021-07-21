@@ -6,20 +6,21 @@ import Spinner from "../Spinner";
 
 type ReturnType = any;
 
-const ProtectedRoute: React.FC<ReturnType> = ({ children }) => {
+const UnprotectedRoute: React.FC<any> = ({ children }) => {
   const router = useRouter();
   const { data, loading } = useMeQuery();
   const user = data?.me;
 
-  console.log(loading, data);
-
   useEffect(() => {
-    if (!loading && !user) router.replace("/register");
+    // @todo add dynamic routing
+    // user don't always redirect to home page
+    // get last path and redirect there
+    if (user) router.replace("/");
   }, [loading, user]);
 
-  if (user) return children;
+  if (!user) return children;
 
   return <Spinner center size="5" />;
 };
 
-export default ProtectedRoute;
+export default UnprotectedRoute;
