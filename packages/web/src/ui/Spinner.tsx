@@ -6,11 +6,17 @@ const sizes = {
   "5": "h-5 w-5",
 };
 
-const Spinner: React.FC<{
+interface SpinnerProps {
   size?: keyof typeof sizes;
   center?: boolean;
   color?: string;
-}> = ({ size = "4", center, color = "text-black" }) => {
+}
+
+const Spinner: React.FC<SpinnerProps> = ({
+  size = "4",
+  center,
+  color = "text-black",
+}) => {
   return (
     <div
       className={`${
