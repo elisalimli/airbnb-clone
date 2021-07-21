@@ -1,5 +1,5 @@
 {
-  "name": "@abb/common",
+  "name": "@abb/controller",
   "version": "1.0.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -8,10 +8,8 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "@types/yup": "^0.29.13",
-    "yup": "^0.32.9"
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "^7.31.0"
   }
 }

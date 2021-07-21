@@ -11,7 +11,6 @@
     "test-lerna": "echo testing server with version: $npm_package_version"
   },
   "devDependencies": {
-    "@types/argon2": "^0.15.0",
     "@types/connect-redis": "^0.0.17",
     "@types/cors": "^2.8.12",
     "@types/express-session": "^1.17.4",

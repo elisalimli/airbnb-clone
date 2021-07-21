@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es2020"
+    ],
+    "skipLibCheck": true,
     "sourceMap": true,
     "outDir": "./dist",
     "moduleResolution": "node",
-    "skipLibCheck": true,
     "removeComments": true,
     "noImplicitAny": true,
-    "strict": true,
-    "strictPropertyInitialization": false,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
@@ -23,10 +23,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "composite": true,
     "baseUrl": "."
   },
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*.tsx", "./src/**/*.ts", "index.d.ts"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ]
 }
