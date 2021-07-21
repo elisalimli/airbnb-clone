@@ -19,7 +19,7 @@ const ProtectedRoute: React.FC<ReturnType> = ({ children }) => {
 
   if (user) return children;
 
-  return <Spinner center size="5" />;
+  return <Spinner center color="text-primary" size="5" />;
 };
 
 export default ProtectedRoute;

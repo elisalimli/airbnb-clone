@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import React from "react";
-import { useRegisterMutation } from "../../generated/graphql";
+import { MeDocument } from "../../../generated/graphql";
+import { useRegisterMutation, MeQuery } from "../../generated/graphql";
 import { FormikSubmit } from "../../types/types";
 import { toErrorMap } from "../../utils/toErrorMap";
 import RegisterView from "./views/RegisterView";
@@ -19,7 +20,15 @@ const RegisterConnector: React.FC = () => {
     values,
     { setErrors }
   ) => {
-    const res = await register({ variables: { input: values } });
+    const res = await register({
+      variables: { input: values },
+      update: (cache, { data }) => {
+        cache.writeQuery<MeQuery>({
+          query: MeDocument,
+          data: { me: data?.register?.user },
+        });
+      },
+    });
     const { errors, user } = res?.data?.register;
     if (errors) setErrors(toErrorMap(errors));
     else if (user) router.push("/");

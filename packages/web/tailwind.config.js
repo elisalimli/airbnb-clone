@@ -58,7 +58,6 @@ module.exports = {
       "1/6": "16%",
     }),
     colors: {
-      black: "#000",
       button: "var(--color-button-text)",
       transparent: "transparent",
       primary: {
