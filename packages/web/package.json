@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@abb/common": "1.0.0",
+    "@abb/controller": "1.0.0",
     "@apollo/client": "^3.3.21",
     "formik": "^2.2.9",
     "next": "latest",

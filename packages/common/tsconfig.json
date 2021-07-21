@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "moduleResolution": "node",
     "skipLibCheck": true,
     "removeComments": true,
@@ -27,6 +27,6 @@
     "composite": true,
     "baseUrl": "."
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "include": ["./src/**/*.tsx", "./src/**/*.ts", "index.d.ts"]
 }

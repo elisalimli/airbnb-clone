@@ -1,34 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "lib": [
-      "es2020"
-    ],
-    "skipLibCheck": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom", "esnext.asynciterable"],
     "sourceMap": true,
-    "outDir": "./dist",
+    "jsx": "react",
     "moduleResolution": "node",
-    "removeComments": true,
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "baseUrl": "."
+    "types": ["node", "react", "react-dom"],
+    "skipDefaultLibCheck": true,
+    "declaration": true,
+    "composite": true
   },
   "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "./src/**/*.ts"
+    "node_modules",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
   ]
 }

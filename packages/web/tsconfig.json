@@ -16,5 +16,5 @@
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "../common" }]
+  "references": [{ "path": "../common" }, { "path": "../controller" }]
 }

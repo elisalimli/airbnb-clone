@@ -2,14 +2,20 @@
   "name": "@abb/controller",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "build": "tsc"
   },
+  "dependencies": {
+    "formik": "^2.2.9",
+    "next": "^11.0.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "latest",
-    "@typescript-eslint/parser": "latest",
-    "eslint": "^7.31.0"
+    "@types/node": "^10.3.4",
+    "@types/react": "^16.4.0",
+    "@types/react-dom": "^16.0.6",
+    "typescript": "^2.9.2"
   }
 }
