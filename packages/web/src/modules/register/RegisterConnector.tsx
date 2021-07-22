@@ -1,11 +1,13 @@
 import { RegisterController } from "@abb/controller";
 import React from "react";
+import { useRegisterMutation } from "../../generated/graphql";
 import RegisterView from "./views/RegisterView";
 
 const RegisterConnector: React.FC = () => {
+  const [register] = useRegisterMutation();
   return (
-    <RegisterController>
-      {({ submit }) => <RegisterView handleSubmit={submit} />}
+    <RegisterController register={register}>
+      {(submit) => <RegisterView handleSubmit={submit} />}
     </RegisterController>
   );
 };

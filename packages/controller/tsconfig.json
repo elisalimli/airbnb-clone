@@ -17,13 +17,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "types": ["node", "react", "react-dom"],
-    "skipDefaultLibCheck": true,
-    "declaration": true,
-    "composite": true
+    "skipLibCheck": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
-    "dist",
+    "build",
     "scripts",
     "acceptance-tests",
     "webpack",

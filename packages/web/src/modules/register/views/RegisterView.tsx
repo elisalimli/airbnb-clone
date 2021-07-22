@@ -1,17 +1,19 @@
 import { Form, Formik } from "formik";
 import Head from "next/head";
 import React from "react";
-import { FormikSubmit } from "../../../types/types";
 import Button from "../../../ui/Button";
 import InputField from "../../../ui/Form/Input/InputField";
-import { FormValues } from "../RegisterConnector";
+import { RegisterFormValues, FormikSubmit } from "@abb/controller";
 import { registerSchema } from "@abb/common";
+import { useRouter } from "next/router";
 
 interface Props {
-  handleSubmit: FormikSubmit<FormValues>;
+  handleSubmit: FormikSubmit<RegisterFormValues>;
 }
 
 const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -19,9 +21,14 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
       </Head>
 
       <div style={{ maxWidth: 300 }} className="mx-auto">
-        <Formik<FormValues>
+        <Formik<RegisterFormValues>
           initialValues={{ username: "", email: "", password: "" }}
-          onSubmit={handleSubmit}
+          // i am saying any,because i don't need this type definitions
+          onSubmit={(...props) => {
+            const res = handleSubmit(...props);
+            console.log("res", res);
+            if (res === null) router.push("/");
+          }}
           validationSchema={registerSchema}
         >
           {({ isSubmitting }) => (

@@ -1,20 +1,31 @@
+import { FetchResult, MutationFunctionOptions } from "@apollo/client";
 import * as React from "react";
 import {
+  Exact,
   MeDocument,
   MeQuery,
-  useRegisterMutation,
+  RegisterInput,
+  RegisterMutation,
 } from "../../generated/graphql";
-import { useRouter } from "next/router";
 import { FormikSubmit, RegisterFormValues } from "../../types";
 import { toErrorMap } from "../../utils/toErrorMap";
 
-export const RegisterController: React.FC = ({ children }) => {
-  const router = useRouter();
-  const [register] = useRegisterMutation();
+type Register = (
+  options?: MutationFunctionOptions<
+    RegisterMutation,
+    Exact<{
+      input: RegisterInput;
+    }>
+  >
+) => Promise<FetchResult<RegisterMutation, Record<any, any>, Record<any, any>>>;
 
+export const RegisterController: React.FC<{
+  register: Register;
+  children: (submit) => null;
+}> = ({ children, register }) => {
   const submit: FormikSubmit<RegisterFormValues> = async (
     values,
-    { setErrors }
+    { setErrors, setSubmitting }
   ) => {
     const res = await register({
       variables: { input: values },
@@ -25,10 +36,12 @@ export const RegisterController: React.FC = ({ children }) => {
         });
       },
     });
-    const { errors, user } = res?.data?.register as any;
+    const { errors, user } = res?.data?.register;
+
+    setSubmitting(false);
     if (errors) setErrors(toErrorMap(errors));
-    else if (user) router.push("/");
+    else if (user) return null;
   };
 
-  return (children as any)(submit);
+  return children(submit);
 };
