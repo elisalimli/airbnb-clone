@@ -14,9 +14,9 @@ export const sessionMiddleware = session({
     maxAge: 1000 * 60 * 60 * 24 * 366 * 10, //10 years
     httpOnly: true,
     sameSite: "lax", //csrf
-    secure: isProduction, // cookie only works in https
+    // secure: isProduction, // cookie only works in https,
   },
-  secret: "hello world",
+  secret: "faasifiszjivoxcjsfdj",
   resave: false,
   saveUninitialized: false,
 });

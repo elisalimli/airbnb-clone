@@ -6,9 +6,8 @@
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "start": "node dist/index.js",
-    "gen": "prisma generate",
-    "migrate": "prisma migrate dev --name my_migrate",
-    "test-lerna": "echo testing server with version: $npm_package_version"
+    "update": "prisma generate",
+    "migrate": "prisma migrate dev --name my_migrate"
   },
   "devDependencies": {
     "@types/connect-redis": "^0.0.17",
@@ -24,13 +23,12 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@abb/common": "1.0.0",
     "@prisma/client": "^2.27.0",
-    "apollo-server-core": "^3.0.1",
-    "apollo-server-express": "^3.0.1",
+    "apollo-server-express": "2.25.2",
     "argon2": "^0.28.2",
     "connect-redis": "^6.0.0",
     "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "express-session": "^1.17.2",

@@ -1,9 +1,5 @@
 import "reflect-metadata";
-import { PrismaClient } from "@prisma/client";
-import {
-  ApolloServerPluginLandingPageDisabled,
-  ApolloServerPluginLandingPageGraphQLPlayground,
-} from "apollo-server-core";
+import "dotenv-safe/config";
 import { ApolloServer } from "apollo-server-express";
 import cors from "cors";
 import express from "express";
@@ -13,13 +9,13 @@ import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
 import { MeResolver } from "./graphql/resolvers/user/me/resolver";
 import { MyContext } from "./types/MyContext";
-import { isProduction, redis, sessionMiddleware } from "./utils";
+import { redis, sessionMiddleware } from "./utils";
+import { prisma } from "./utils/prisma";
 
 const PORT = process.env.PORT || 4000;
 
 const main = async () => {
   const app = express();
-  // app.set("trust proxy", 1);
 
   app.use(
     cors({
@@ -29,8 +25,10 @@ const main = async () => {
   );
 
   app.use(sessionMiddleware);
+  // for cookie
+  app.set("trust proxy", 1);
 
-  const schema = await buildSchema({
+  const schema = (await buildSchema({
     resolvers: [
       // Mutations
       RegisterResolver,
@@ -40,45 +38,21 @@ const main = async () => {
       MeResolver,
     ],
     validate: false,
-  });
-
-  const prisma = new PrismaClient({
-    log: [
-      {
-        emit: "stdout",
-        level: "query",
-      },
-      {
-        emit: "stdout",
-        level: "error",
-      },
-      {
-        emit: "stdout",
-        level: "info",
-      },
-      {
-        emit: "stdout",
-        level: "warn",
-      },
-    ],
-  });
+  })) as any;
 
   const apolloServer = new ApolloServer({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     schema,
-    context: ({ req, res }): MyContext => ({
+    playground: true,
+    introspection: true,
+    context: ({ req, res }: MyContext): MyContext => ({
       req: req as any,
       res: res as any,
       prisma,
       redis,
     }),
-    plugins: [
-      isProduction
-        ? ApolloServerPluginLandingPageDisabled
-        : ApolloServerPluginLandingPageGraphQLPlayground,
-    ],
   });
-
-  await apolloServer.start();
 
   apolloServer.applyMiddleware({
     app,
@@ -90,6 +64,11 @@ const main = async () => {
   });
 };
 
-main().catch((err) => {
-  console.log(err);
-});
+main()
+  .catch((err) => {
+    console.log(err);
+    process.exit(1);
+  })
+  .finally(() => {
+    prisma.$disconnect();
+  });

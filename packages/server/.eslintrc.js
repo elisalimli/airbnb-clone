@@ -23,5 +23,6 @@ module.exports = {
     "no-console": "off",
     "spaced-comment": "off",
     "arrow-body-style": 0,
+    "no-explicit-any": 0,
   },
 };
