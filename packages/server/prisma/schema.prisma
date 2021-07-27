@@ -24,3 +24,10 @@ model User {
 
   @@map("user")
 }
+
+model Post {
+  id       String @id @default(uuid())
+  username String @unique @db.VarChar(50)
+
+  @@map("post")
+}
