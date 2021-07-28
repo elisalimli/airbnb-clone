@@ -1,4 +1,4 @@
-import argon2 from "argon2";
+import * as argon2 from "argon2";
 import { Arg, Ctx, Mutation, Resolver } from "type-graphql";
 import * as yup from "yup";
 // import { error } from "../register/error";
