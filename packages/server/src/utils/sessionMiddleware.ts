@@ -1,6 +1,6 @@
 import connectRedis from "connect-redis";
 import session from "express-session";
-import { redis, COOKIE_NAME, isProduction } from "./index";
+import { redis, COOKIE_NAME } from "./index";
 
 const RedisStore = connectRedis(session);
 
@@ -16,7 +16,7 @@ export const sessionMiddleware = session({
     sameSite: "lax", //csrf
     // secure: isProduction, // cookie only works in https,
   },
-  secret: "faasifiszjivoxcjsfdj",
+  secret: process.env.FRONTEND_HOST as string,
   resave: false,
   saveUninitialized: false,
 });

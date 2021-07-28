@@ -1,74 +1,20 @@
-import "reflect-metadata";
-import "dotenv-safe/config";
-import { ApolloServer } from "apollo-server-express";
-import cors from "cors";
-import express from "express";
-import { buildSchema } from "type-graphql";
-import { RegisterResolver } from "./graphql/resolvers";
-import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
-import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
-import { MeResolver } from "./graphql/resolvers/user/me/resolver";
-import { MyContext } from "./types/MyContext";
-import { redis, sessionMiddleware } from "./utils";
-import { prisma } from "./utils/prisma";
+import util from "util";
+import { exec } from "child_process";
 
-const PORT = process.env.PORT || 4000;
-
-const main = async () => {
-  const app = express();
-
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-      credentials: true,
-    })
-  );
-
-  app.use(sessionMiddleware);
-  // for cookie
-  app.set("trust proxy", 1);
-
-  const schema = (await buildSchema({
-    resolvers: [
-      // Mutations
-      RegisterResolver,
-      LoginResolver,
-      LogoutResolver,
-      //Queries
-      MeResolver,
-    ],
-    validate: false,
-  })) as any;
-
-  const apolloServer = new ApolloServer({
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    schema,
-    playground: true,
-    introspection: true,
-    context: ({ req, res }: MyContext): MyContext => ({
-      req: req as any,
-      res: res as any,
-      prisma,
-      redis,
-    }),
-  });
-
-  apolloServer.applyMiddleware({
-    app,
-    cors: false,
-  });
-
-  app.listen(PORT, () => {
-    console.log(`server listening on port ${PORT}`);
-  });
+const runMigrations = async () => {
+  console.log("1");
+  const run = util.promisify(exec);
+  await run("npx prisma migrate deploy");
+  await run("npx prisma generate");
 };
 
-main()
-  .catch((err) => {
+runMigrations().then(() => {
+  const { main } = require("./main");
+  main().catch((err: any) => {
     console.log(err);
     process.exit(1);
-  })
-  .finally(() => {
-    prisma.$disconnect();
   });
+  // .finally(() => {
+  //    prisma.$disconnect();
+  // });
+});
