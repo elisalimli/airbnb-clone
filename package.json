@@ -15,6 +15,8 @@
     "@graphql-codegen/cli": "1.21.7",
     "@graphql-codegen/typescript": "1.23.0",
     "@graphql-codegen/typescript-operations": "1.18.4",
-    "@graphql-codegen/typescript-react-apollo": "2.3.1"
-  }
+    "@graphql-codegen/typescript-react-apollo": "2.3.1",
+    "lerna": "^4.0.0"
+  },
+  "name": "airbnb"
 }
