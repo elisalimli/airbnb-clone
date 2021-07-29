@@ -6,8 +6,19 @@ on:
 jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
     steps:
-      - run: yarn build:server
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: ls ${{ github.workspace }}
+      - run: npm run build:server
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
   
