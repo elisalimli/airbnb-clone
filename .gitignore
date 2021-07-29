@@ -3,12 +3,10 @@ dist/
 node_modules/
 .env
 .env.prod
-package-lock.json
-
 .next/
-*.log
 *.lock
-.yarn
+
+*.log
 .yarn/*
 !.yarn/patches
 !.yarn/releases
