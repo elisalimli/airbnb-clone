@@ -14,7 +14,6 @@ jobs:
         with:
           node-version: '14'
           cache: 'yarn'
-
       - run: ls ${{ github.workspace }}
       - run: yarn install
       - run: yarn build:server
