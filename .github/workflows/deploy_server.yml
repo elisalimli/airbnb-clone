@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn --version
+      - run: yarn install --frozen-lockfile
 
       # - run: docker build -t alisalim17/abb:latest .  
       # - run: docker push alisalim17/abb:latest
