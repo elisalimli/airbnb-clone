@@ -17,7 +17,10 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-
+        script: |
+          docker pull alisalim17/abb:latest 
+          docker tag alisalim17/abb:latest dokku/api:latest 
+          dokku tags:deploy api latest
  
       # - run: docker pull alisalim17/abb:latest && docker tag alisalim17/abb:latest dokku/api:latest && dokku tags:deploy api latest
       - name: List files in the repository
