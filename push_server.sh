@@ -8,5 +8,3 @@ docker build -t alisalim17/abb:latest .
 
 # Push to docker hub
 docker push alisalim17/abb:latest
-
-wsl 
