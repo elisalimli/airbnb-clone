@@ -15,8 +15,14 @@ jobs:
           node-version: '14'
           cache: 'yarn'
       - run: ls ${{ github.workspace }}
-      - run: yarn install
-      - run: yarn build:server
+      - name: Install Packages 
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install 
+      - name: Build Code 
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build:server 
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
   
