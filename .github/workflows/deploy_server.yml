@@ -7,9 +7,9 @@ jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
     steps:
-      # - run: yarn build:server
-      # - run: docker build -t alisalim17/abb:latest .  
-      # - run: docker push alisalim17/abb:latest
+      - run: yarn build:server
+      - run: docker build -t alisalim17/abb:latest .  
+      - run: docker push alisalim17/abb:latest
   
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.4
@@ -22,8 +22,3 @@ jobs:
             docker tag alisalim17/abb:latest dokku/api:latest 
             dokku tags:deploy api latest
  
-      # - run: docker pull alisalim17/abb:latest && docker tag alisalim17/abb:latest dokku/api:latest && dokku tags:deploy api latest
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
