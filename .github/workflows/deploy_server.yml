@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: 14.x
 
     steps:
       - uses: actions/checkout@v2
@@ -17,8 +17,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
       - run: ls ${{ github.workspace }}
-      - run: npm run build:server
+      - run: yarn install
+      - run: yarn build:server
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
   
