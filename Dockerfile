@@ -2,7 +2,7 @@ FROM node:14-buster-slim
 
 WORKDIR /abb
 
-COPY ./*.json .
+COPY ./*.json ./
 COPY ./packages/server/package.json ./packages/server/package.json
 COPY ./packages/common/package.json ./packages/common/package.json
 
