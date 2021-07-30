@@ -2,11 +2,15 @@ FROM node:14-buster-slim
 
 WORKDIR /abb
 
-COPY ./package.json .
+COPY ./*.json .
 COPY ./packages/server/package.json ./packages/server/package.json
 COPY ./packages/common/package.json ./packages/common/package.json
 
-RUN yarn install --production 
+# RUN npm install -g lerna
+# RUN yarn build:server 
+RUN npm install -g tsc
+RUN yarn --pure-lockfile --production
+# RUN yarn install  
 
 COPY ./packages/server/dist ./packages/server/dist
 COPY ./packages/common/dist ./packages/common/dist
@@ -15,7 +19,8 @@ COPY ./packages/server/.env.example ./packages/server/
 
 WORKDIR ./packages/server
 
-RUN yarn install --production 
+RUN yarn --pure-lockfile --production
+RUN yarn build 
 COPY ./packages/server/prisma ./prisma
 
 RUN npx prisma migrate deploy
