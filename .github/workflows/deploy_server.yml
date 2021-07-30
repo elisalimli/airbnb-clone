@@ -14,7 +14,10 @@ jobs:
           echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
       - name: Display Name
         run: |
-          echo ${{ env.RANDOM_NAME }}
+          echo ${{ env.super_secret }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.SuperSecret }}
+   
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
   
