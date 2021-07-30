@@ -9,6 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Name Generator
+        run: |
+          echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
+      - name: Display Name
+        run: |
+          echo ${{ env.RANDOM_NAME }}
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
   
