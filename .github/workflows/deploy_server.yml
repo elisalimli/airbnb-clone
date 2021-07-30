@@ -6,21 +6,17 @@ on:
 jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      FRONTEND_HOST: http://localhost:3000
+
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Name Generator
-        run: |
-          echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
-      - name: Display Name
-        run: |
-          echo ${{ env.super_secret }}
-        env: # Or as an environment variable
-          super_secret: ${{ secrets.SuperSecret }}
-   
+      - uses: actions/checkout@v2 
+      - run: echo  ${{ env.FRONTEND_HOST }}
       - run: docker build -t alisalim17/abb:latest .  
       - run: docker push alisalim17/abb:latest
-  
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.4
         with:
