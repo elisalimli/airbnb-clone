@@ -4,8 +4,9 @@ import { isServer } from "./isServer";
 import { withApollo as createWithApollo } from "next-apollo";
 
 const createClient = (ctx: NextPageContext) => {
+  console.log("url", process.env.NEXT_PUBLIC_API_URL);
   return new ApolloClient({
-    uri: "http://localhost:4000/graphql",
+    uri: process.env.NEXT_PUBLIC_API_URL,
     credentials: "include",
     headers: {
       cookie: isServer ? ctx?.req?.headers.cookie : undefined,

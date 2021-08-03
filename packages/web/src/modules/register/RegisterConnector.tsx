@@ -7,7 +7,7 @@ const RegisterConnector: React.FC = () => {
   const [register] = useRegisterMutation();
   return (
     <RegisterController register={register}>
-      {(submit) => <RegisterView handleSubmit={submit} />}
+      {(submit) => (<RegisterView handleSubmit={submit} />) as any}
     </RegisterController>
   );
 };

@@ -10,8 +10,19 @@ CREATE TABLE "user" (
     PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "post" (
+    "id" TEXT NOT NULL,
+    "username" VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user.email_unique" ON "user"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user.username_unique" ON "user"("username");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "post.username_unique" ON "post"("username");

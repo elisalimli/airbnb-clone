@@ -12,6 +12,7 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> &
 
 export const textFieldStyle = {
   error: "text-secondary-washed-out mt-1 ml-0.5 text-sm",
+  label: "",
 };
 
 const InputField: React.FC<InputFieldProps> = ({
