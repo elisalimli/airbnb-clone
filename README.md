@@ -1,10 +1,13 @@
-# AWS Lambda deployment example
+# Airbnb Clone
 
-[Deployment Guide](https://www.prisma.io/docs/guides/deployment/deploying-to-aws-lambda)
-
-## Download manually
-
-```bash
-curl https://codeload.github.com/prisma/prisma-examples/tar.gz/latest | tar -xz --strip=2 prisma-examples-latest/deployment-platforms/aws-lambda
-cd aws-lambda
-```
+### Tech Stack :
+- Typescript 
+- React
+- React Native
+- Graphql
+- Type-graphql
+- Prisma
+- PostgreSQL
+- Tailwind css 
+- Redis
+- And Others
