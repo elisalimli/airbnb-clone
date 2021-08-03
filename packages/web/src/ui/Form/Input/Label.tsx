@@ -4,7 +4,7 @@ import { textFieldStyle } from "./InputField";
 type Props = React.DetailedHTMLProps<
   React.LabelHTMLAttributes<HTMLLabelElement>,
   HTMLLabelElement
-> & {};
+>;
 
 const Label: React.FC<Props> = ({ children, ...props }) => {
   return (

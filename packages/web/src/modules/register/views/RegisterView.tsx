@@ -24,14 +24,14 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
         <Formik<RegisterFormValues>
           initialValues={{ username: "", email: "", password: "" }}
           // i am saying any,because i don't need this type definitions
-          onSubmit={(...props) => {
-            const res = handleSubmit(...props);
-            console.log("res", res);
-            if (res === null) router.push("/");
+          onSubmit={async (...props) => {
+            const res = await handleSubmit(...props);
+            console.log(res);
+            if (res) router.push("/");
           }}
           validationSchema={registerSchema}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, errors }) => (
             <Form noValidate>
               {/* <Header
               headerType="h1"
@@ -59,6 +59,11 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
                 label="Password"
                 type="password"
               />
+
+              {/* @todo change this to error component */}
+              <div className="text-primary mt-1 ml-0.5 text-sm">
+                {errors["general"]}
+              </div>
               <Button
                 size="big"
                 wrapperClassname="mt-4"

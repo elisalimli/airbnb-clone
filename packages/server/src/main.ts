@@ -15,7 +15,6 @@ import { prisma } from "./utils/prisma";
 const PORT = process.env.PORT || 4000;
 
 export const main = async () => {
-  console.log(2);
   const app = express();
 
   app.use(

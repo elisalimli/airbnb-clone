@@ -21,7 +21,7 @@ type Register = (
 
 export const RegisterController: React.FC<{
   register: Register;
-  children: (submit) => null;
+  children: (submit: any) => any;
 }> = ({ children, register }) => {
   const submit: FormikSubmit<RegisterFormValues> = async (
     values,
@@ -36,11 +36,18 @@ export const RegisterController: React.FC<{
         });
       },
     });
-    const { errors, user } = res?.data?.register;
+    const errors = res?.data?.register.errors;
+
+    console.log(errors);
 
     setSubmitting(false);
-    if (errors) setErrors(toErrorMap(errors));
-    else if (user) return null;
+    if (errors) {
+      setErrors(toErrorMap(errors));
+      return false;
+    }
+
+    // @todo route some page
+    return true;
   };
 
   return children(submit);

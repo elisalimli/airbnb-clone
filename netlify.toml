@@ -1,0 +1,11 @@
+[build]
+functions = "./packages/web/out_functions"
+publish   = "./packages/web/out"
+
+[dev]
+functions = "./packages/web/out_functions"
+publish   = "./packages/web/out"
+
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"

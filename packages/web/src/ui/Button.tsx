@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, useMemo } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { FontWeightProps } from "./shared/classNames";
 import Spinner from "./Spinner";
 
@@ -35,14 +35,16 @@ const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const buttonStyles = useMemo(
-    () => ({
-      wrapper: `${centered && "flex justify-center"} ${wrapperClassname}`,
-      button: `${styles.general} ${styles.variants[variant]} ${styles.center} ${sizeClassnames[size]}`,
-      loading: isLoading ? "opacity-0" : null,
-    }),
-    [isLoading]
-  );
+  const buttonStyles = {
+    //  useMemo(
+    // () => ({
+    wrapper: `${centered && "flex justify-center"} ${wrapperClassname}`,
+    button: `${styles.general} ${styles.variants[variant]} ${styles.center} ${sizeClassnames[size]}`,
+    loading: isLoading ? "opacity-0" : null,
+    // }),
+    // [isLoading]
+    // );
+  };
 
   return (
     <div className={buttonStyles.wrapper}>

@@ -13,7 +13,8 @@ export const sessionMiddleware = session({
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 366 * 10, //10 years
     httpOnly: true,
-    sameSite: "lax", //csrf
+    sameSite: "lax", //csrf,
+    domain: ".airbnb-test.netlify.app",
     // secure: isProduction, // cookie only works in https,
   },
   secret: process.env.FRONTEND_HOST as string,

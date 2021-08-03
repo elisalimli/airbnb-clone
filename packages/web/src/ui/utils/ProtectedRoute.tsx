@@ -8,13 +8,13 @@ type ReturnType = any;
 
 const ProtectedRoute: React.FC<ReturnType> = ({ children }) => {
   const router = useRouter();
-  const { data, loading } = useMeQuery();
+  const { data, loading } = useMeQuery({ notifyOnNetworkStatusChange: true });
   const user = data?.me;
 
   console.log(loading, data);
 
   useEffect(() => {
-    if (!loading && !user) router.replace("/register");
+    if (!user) router.replace("/register");
   }, [loading, user]);
 
   if (user) return children;
