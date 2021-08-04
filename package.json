@@ -9,7 +9,8 @@
     "gen": "graphql-codegen --config codegen.yml",
     "build": "lerna run build --scope=@abb/web",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
-    "build:web": "lerna run build --scope={abb/common,@abb/web}"
+    "build:web": "lerna run build --scope={abb/common,@abb/web}",
+    "start": "yarn workspace @abb/web start"
   },
   "dependencies": {
     "graphql": "^15.5.1",
