@@ -4,12 +4,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "install": "yarn install",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "style": "tailwindcss build ./styles/tailwind.css -o ./styles/index.css",
-    "export": "next export"
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "style": "tailwindcss build ./styles/tailwind.css -o ./styles/index.css"
   },
   "dependencies": {
     "@abb/common": "1.0.0",

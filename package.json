@@ -8,7 +8,6 @@
   "scripts": {
     "gen": "graphql-codegen --config codegen.yml",
     "start": "yarn workspace @abb/web start",
-    "heroku-postbuild": "yarn workspace @abb/web install && yarn workspace @abb/web build",
     "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web}",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
     "build:web": "lerna run build --scope={@abb/common,@abb/web}"
