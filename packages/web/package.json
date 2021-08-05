@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "install": "yarn install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
