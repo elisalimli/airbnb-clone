@@ -19,3 +19,6 @@ node_modules/
 
 # Local Netlify folder
 .netlify
+
+out
+out_functions
