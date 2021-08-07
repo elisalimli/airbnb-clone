@@ -1,0 +1,42 @@
+{
+  "name": "@abb/server",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js",
+    "start": "node dist/index.js",
+    "update": "prisma generate",
+    "migrate": "prisma migrate dev --name my_migrate"
+  },
+  "devDependencies": {
+    "@types/connect-redis": "^0.0.17",
+    "@types/cors": "^2.8.12",
+    "@types/express-session": "^1.17.4",
+    "@types/ioredis": "^4.26.5",
+    "@types/yup": "^0.29.13",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "nodemon": "^2.0.12",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@abb/common": "1.0.0",
+    "@prisma/client": "^2.27.0",
+    "apollo-server-express": "2.25.2",
+    "argon2": "^0.28.2",
+    "connect-redis": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "graphql": "^15.5.1",
+    "ioredis": "^4.27.6",
+    "prisma": "2.27.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typegraphql-prisma": "^0.14.7",
+    "yup": "^0.32.9"
+  }
+}

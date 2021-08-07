@@ -1,0 +1,23 @@
+{
+  "name": "@abb/controller",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.21",
+    "formik": "^2.2.9",
+    "graphql": "^15.5.1",
+    "next": "^11.0.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.4",
+    "@types/react": "^16.4.0",
+    "@types/react-dom": "^16.0.6",
+    "typescript": "^4.3.5"
+  }
+}

@@ -1,0 +1,21 @@
+# ./netlify.toml
+
+[build]
+  command = "next build packages/web"
+  publish = "packages/web/out"
+
+[functions]
+  directory = "packages/web/out_functions"
+
+[dev]
+  command = "yarn start"
+  port = 8888
+  targetPort = 4321
+  publish = "packages/web/out" 
+  functions = "packages/web/out_functions" 
+  autoLaunch = true
+  framework = "next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
