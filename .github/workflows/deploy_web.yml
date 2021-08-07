@@ -4,13 +4,12 @@ on:
     branches: [ staging ]
  # @todo chage `staging` to `prod` 
 jobs:
-  Deploy-Server:
+    Build:
     runs-on: ubuntu-latest
     steps:
         - run: yarn build
 
-jobs:
-  deploy:
+    Deploy:
     name: 'Deploy to Netlify'
     steps:
       - uses: jsmrcaga/action-netlify-deploy@v1.1.0
