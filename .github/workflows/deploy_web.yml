@@ -1,0 +1,27 @@
+name: Deploy Web
+on: 
+  push:
+    branches: [ staging ]
+ # @todo chage `staging` to `prod` 
+jobs:
+  Deploy-Server:
+    runs-on: ubuntu-latest
+    steps:
+        - run: yarn build
+
+jobs:
+  deploy:
+    name: 'Deploy to Netlify'
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        script: netlify deploy --build
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true
+
+        
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
