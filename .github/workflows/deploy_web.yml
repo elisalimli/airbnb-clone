@@ -7,12 +7,12 @@ jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
     steps:
-      - run: npm run build
       - name: List files in the repository
         run: |
          cd ../ && ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
   
+      - run: npm run build
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.4
         with:
