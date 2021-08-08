@@ -1,26 +1,27 @@
-name: Deploy Web
+name: Deploy Server
 on: 
   push:
     branches: [ staging ]
- # @todo chage `staging` to `prod` 
+
 jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
     steps:
+      - run: npm run build
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: yarn install
-      - run: npm run build
-
-      - name: 'Deploy to Netlify'
-        uses: jsmrcaga/action-netlify-deploy@v1.1.0
+  
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v0.1.4
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-          NETLIFY_DEPLOY_TO_PROD: true
-          script: netlify deploy --build
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker pull alisalim17/abb:latest 
+            docker tag alisalim17/abb:latest dokku/api:latest 
+            dokku tags:deploy api latest
  
-
-        
+      # - run: docker pull alisalim17/abb:latest && docker tag alisalim17/abb:latest dokku/api:latest && dokku tags:deploy api latest
