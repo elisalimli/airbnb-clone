@@ -4,23 +4,22 @@ on:
     branches: [ staging ]
  # @todo chage `staging` to `prod` 
 jobs:
-    Build:
+  Deploy-Server:
     runs-on: ubuntu-latest
     steps:
-        - run: yarn build
+      - run: yarn build
 
-    Deploy:
-    name: 'Deploy to Netlify'
-    steps:
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
-        script: netlify deploy --build
+      - name: 'Deploy to Netlify'
+        uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
           NETLIFY_DEPLOY_TO_PROD: true
+          script: netlify deploy --build
+ 
 
         
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      # - name: List files in the repository
+      #   run: |
+      #     ls ${{ github.workspace }}
+      # - run: echo "🍏 This job's status is ${{ job.status }}."
