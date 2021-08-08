@@ -7,7 +7,7 @@ jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
     steps:
-      - run: yarn build
+      - run: npm run build
 
       - name: 'Deploy to Netlify'
         uses: jsmrcaga/action-netlify-deploy@v1.1.0
