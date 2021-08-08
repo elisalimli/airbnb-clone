@@ -7,6 +7,11 @@ jobs:
   Deploy-Server:
     runs-on: ubuntu-latest
     steps:
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: yarn install
       - run: npm run build
 
       - name: 'Deploy to Netlify'
@@ -19,7 +24,3 @@ jobs:
  
 
         
-      # - name: List files in the repository
-      #   run: |
-      #     ls ${{ github.workspace }}
-      # - run: echo "🍏 This job's status is ${{ job.status }}."
