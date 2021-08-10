@@ -7,20 +7,24 @@
   },
   "scripts": {
     "gen": "graphql-codegen --config codegen.yml",
-    "build": "lerna run build --scope=@abb/web",
+    "start": "yarn workspace @abb/web start",
+    "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web,@abb/server}",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
-    "build:web": "lerna run build --scope={abb/common,@abb/web}"
+    "build:web": "lerna run build --scope={@abb/common,@abb/web}"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^3.8.0",
+    "critters": "^0.0.10",
+    "global": "^4.4.0",
     "graphql": "^15.5.1",
-    "lerna": "^4.0.0",
-    "netlify-cli": "5.4.1"
+    "lerna": "^4.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.7",
     "@graphql-codegen/typescript": "1.23.0",
     "@graphql-codegen/typescript-operations": "1.18.4",
-    "@graphql-codegen/typescript-react-apollo": "2.3.1"
+    "@graphql-codegen/typescript-react-apollo": "2.3.1",
+    "netlify-cli": "^6.0.3"
   },
   "name": "airbnb"
 }

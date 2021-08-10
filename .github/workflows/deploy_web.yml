@@ -10,6 +10,10 @@ jobs:
       - uses: actions/checkout@v2 
       - run: yarn install  
       - run: npm run build
+<<<<<<< HEAD
+=======
+      - run: npx netlify build
+>>>>>>> d1dc84fe660bc7be6440bd968eec91c341199d27
       
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
