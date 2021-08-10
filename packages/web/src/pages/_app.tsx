@@ -3,9 +3,9 @@ import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/index.css";
 
-if (process.env.NODE_ENV === "production")
-  // @ts-ignore
-  import("../styles/tailwind.css");
+// if (process.env.NODE_ENV === "production")
+//   // @ts-ignore
+//   import("../styles/tailwind.css");
 
 const MyApp = ({ Component, pageProps }) => {
   // createPageProgressBar();

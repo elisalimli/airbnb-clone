@@ -22,9 +22,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 
-
-if (true) // @ts-ignore
-  __webpack_require__.e(/* import() */ 97).then(__webpack_require__.t.bind(__webpack_require__, 92097, 23));
+ // if (process.env.NODE_ENV === "production")
+//   // @ts-ignore
+//   import("../styles/tailwind.css");
 
 const MyApp = ({
   Component,
@@ -49,7 +49,7 @@ const MyApp = ({
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7dd9a5a4fd835.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/qi5AT4rQm4OOQos-7LIYN/_buildManifest.js","static/qi5AT4rQm4OOQos-7LIYN/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-ac779427c76a9d0d09cc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/pages/index-2f71cec45eddb636b346.js"],"/[testId]":["static/chunks/webpack-ac779427c76a9d0d09cc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/[testId]-29e3bf2f40b62c6ca39b.js"],"/_app":["static/chunks/webpack-ac779427c76a9d0d09cc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/css/9d19fd5531b1c17130a7.css","static/chunks/pages/_app-c1c4e4482550e28cdf8d.js"],"/_error":["static/chunks/webpack-ac779427c76a9d0d09cc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/_error-f0c8671670e02d5c5929.js"],"/register":["static/chunks/webpack-ac779427c76a9d0d09cc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/660-645bc1d5dc80db6e5f22.js","static/chunks/pages/register-873777373d406a759e5d.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7dd9a5a4fd835.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/DLHakAg9Pd1fv7ZVtMaT4/_buildManifest.js","static/DLHakAg9Pd1fv7ZVtMaT4/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-e923ad560b2a583fb558.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/pages/index-2f71cec45eddb636b346.js"],"/[testId]":["static/chunks/webpack-e923ad560b2a583fb558.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/[testId]-29e3bf2f40b62c6ca39b.js"],"/_app":["static/chunks/webpack-e923ad560b2a583fb558.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/css/9d19fd5531b1c17130a7.css","static/chunks/pages/_app-2f77215ff9fe2d4b522f.js"],"/_error":["static/chunks/webpack-e923ad560b2a583fb558.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/_error-f0c8671670e02d5c5929.js"],"/register":["static/chunks/webpack-e923ad560b2a583fb558.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/660-645bc1d5dc80db6e5f22.js","static/chunks/pages/register-873777373d406a759e5d.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 
@@ -57,7 +57,7 @@ module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"..\\\\..\\\\..\\\\..\\\\node_modules\\\\next-apollo\\\\dist\\\\index.es.js -> @apollo/client/react/ssr":{"id":4030,"files":["static/chunks/framework-e7644ca443da4d182644.js","static/chunks/30.8df1efc40208a4c998c0.js"]},"_app.tsx -> ../styles/tailwind.css":{"id":7645,"files":["static/css/2db377d58e182ab56ada.css","static/chunks/645.4036aafd38f45118f1ef.js"]}}');
+module.exports = JSON.parse('{"..\\\\..\\\\..\\\\..\\\\node_modules\\\\next-apollo\\\\dist\\\\index.es.js -> @apollo/client/react/ssr":{"id":4030,"files":["static/chunks/framework-e7644ca443da4d182644.js","static/chunks/30.8df1efc40208a4c998c0.js"]}}');
 
 /***/ })
 

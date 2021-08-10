@@ -176,7 +176,7 @@ const Home = () => {
 
 /***/ }),
 
-/***/ 17634:
+/***/ 80757:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -269,11 +269,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/",
-        buildId: "qi5AT4rQm4OOQos-7LIYN",
-        escapedBuildId: "qi5AT4rQm4OOQos\-7LIYN",
+        buildId: "DLHakAg9Pd1fv7ZVtMaT4",
+        escapedBuildId: "DLHakAg9Pd1fv7ZVtMaT4",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"34281b938d35b2d938079a5b79cf7687",previewModeSigningKey:"5cb7bcd5454f0ed7d1cb2f186066c51893f661bde1eb0952533e6f1d15db159a",previewModeEncryptionKey:"62e75977d04800083f1c0fd9d87b7e3440b304293d852b743bf6aa756fa1fcef"}
+        encodedPreviewProps: {previewModeId:"ff3ab03ed2998b5a8ce4b5e39404bf10",previewModeSigningKey:"ac2371e77db3bee3da702ebc657ec385637d02074258407b21a7c8f9ca20f058",previewModeEncryptionKey:"b4f078f478c234b168ec7864164030b7dd65a0ddc0fb739a8bc662a7f627caef"}
       })
       
     
@@ -434,7 +434,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(17634); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(80757); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
@@ -482,36 +482,6 @@ module.exports = require("zlib");;
 /******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	!function() {
-/******/ 		var getProto = Object.getPrototypeOf ? function(obj) { return Object.getPrototypeOf(obj); } : function(obj) { return obj.__proto__; };
-/******/ 		var leafPrototypes;
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 16: return value when it's Promise-like
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__webpack_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if(typeof value === 'object' && value) {
-/******/ 				if((mode & 4) && value.__esModule) return value;
-/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
-/******/ 			}
-/******/ 			var ns = Object.create(null);
-/******/ 			__webpack_require__.r(ns);
-/******/ 			var def = {};
-/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
-/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
-/******/ 				Object.getOwnPropertyNames(current).forEach(function(key) { def[key] = function() { return value[key]; }; });
-/******/ 			}
-/******/ 			def['default'] = function() { return value; };
-/******/ 			__webpack_require__.d(ns, def);
-/******/ 			return ns;
 /******/ 		};
 /******/ 	}();
 /******/ 	
