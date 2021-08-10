@@ -16,7 +16,6 @@ jobs:
         with:
           publish-dir: 'packages/web/out'
           functions-dir: 'packages/web/out_functions'
-          # netlify-config-path: './netlify.toml'
           production-branch: master
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
