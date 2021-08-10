@@ -15,7 +15,9 @@ type Register = (
     RegisterMutation,
     Exact<{
       input: RegisterInput;
-    }>
+    }>,
+    any,
+    any
   >
 ) => Promise<FetchResult<RegisterMutation, Record<any, any>, Record<any, any>>>;
 
@@ -30,6 +32,7 @@ export const RegisterController: React.FC<{
     const res = await register({
       variables: { input: values },
       update: (cache, { data }) => {
+        // @ts-ignore
         cache.writeQuery<MeQuery>({
           query: MeDocument,
           data: { me: data?.register?.user },

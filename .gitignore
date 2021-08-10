@@ -5,7 +5,7 @@ node_modules/
 .env.local
 .env.prod
 .next/
-*.lock
+# *.lock
 
 *.log
 .yarn/*
@@ -19,3 +19,7 @@ node_modules/
 
 # Local Netlify folder
 .netlify
+netlify
+
+out
+out_functions
