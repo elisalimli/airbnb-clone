@@ -1,22 +1,18 @@
-name: Deploy Server
+name: Deploy Frontend
 on: 
   push:
     branches: [ staging ]
 
 jobs:
-  Deploy-Server:
+  Deploy-Frontend:
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-      FRONTEND_HOST: http://localhost:3000
-
-
     steps:
       - uses: actions/checkout@v2 
-      - run: echo Install  
-      - run: ls  
       - run: yarn install  
       - run: npm run build
-      - run: echo  ${{ env.FRONTEND_HOST }}
- 
+      - name: Deploy to Netlify
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true
