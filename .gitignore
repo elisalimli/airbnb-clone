@@ -18,4 +18,12 @@ node_modules/
 .vercel
 
 # Local Netlify folder
+<<<<<<< prod
 .netlify
+=======
+.netlify
+netlify
+
+# out
+# out_functions
+>>>>>>> local
