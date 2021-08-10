@@ -4,12 +4,12 @@ on:
     branches: [ staging ]
 
 jobs:
-  Deploy-Server:
+  Deploy-Frontend:
     runs-on: ubuntu-latest
     steps:
-      - run: yarn install
-      - run: npm run build
-  
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run: yarn install
+      - run: npm run build
+  
