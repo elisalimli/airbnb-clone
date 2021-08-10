@@ -1,7 +1,0 @@
-# Next-on-Netlify Redirects
-/  /.netlify/functions/next_index  200
-/api/hello  /.netlify/functions/next_api_hello  200
-/register  /.netlify/functions/next_register  200
-/_next/image*  url=:url w=:width q=:quality  /nextimg/:url/:width/:quality  301!
-/nextimg/*  /.netlify/functions/next_image  200
-/:testId  /[testId].html  200
