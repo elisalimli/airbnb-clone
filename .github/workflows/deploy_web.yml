@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2 
       - run: echo Install  
       - run: ls  
-      - run: yarn build  
       - run: yarn install  
+      - run: yarn build  
       - run: echo  ${{ env.FRONTEND_HOST }}
  
