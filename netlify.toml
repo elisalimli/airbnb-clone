@@ -1,9 +1,4 @@
 # ./netlify.toml
-
-[build]
-  command = "next build packages/web"
-  publish = "packages/web/out"
-
 [functions]
   directory = "packages/web/out_functions"
 
