@@ -1,7 +1,7 @@
 name: Deploy Frontend
 on: 
   push:
-    branches: [ staging ]
+    branches: [ prod ]
 
 jobs:
   Deploy-Frontend:
@@ -10,7 +10,6 @@ jobs:
       - uses: actions/checkout@v2 
       - run: yarn install  
       - run: npm run build
-      
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:

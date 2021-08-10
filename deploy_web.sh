@@ -1,8 +1,15 @@
 #! /bin/bash
 
-# Build code
-npm run build:web
+# echo What should be the branch?
+# read BRANCH
 
-netlify build
+echo What should be the commit message?
+read COMMIT
 
-netlify deploy
+# git checkout -m $BRANCH
+
+git add .
+
+git commit -m $COMMIT
+
+git push origin prod
