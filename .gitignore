@@ -21,4 +21,5 @@ node_modules/
 .netlify
 netlify
 
-# out*
+out
+out_functions
