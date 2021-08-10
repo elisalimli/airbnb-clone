@@ -504,6 +504,8 @@ const RegisterView = ({
           }), /*#__PURE__*/jsx_runtime.jsx("div", {
             className: "text-primary mt-1 ml-0.5 text-sm",
             children: errors["general"]
+          }), /*#__PURE__*/jsx_runtime.jsx("div", {
+            children: "dsadsad"
           }), /*#__PURE__*/jsx_runtime.jsx(ui_Button, {
             size: "big",
             wrapperClassname: "mt-4",
@@ -590,7 +592,7 @@ const Register = () => {
 
 /***/ }),
 
-/***/ 94104:
+/***/ 27507:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -683,11 +685,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/register",
-        buildId: "DYfjlE_ug9XdviHYi8g0c",
-        escapedBuildId: "DYfjlE_ug9XdviHYi8g0c",
+        buildId: "-OQ4pOAuhrN-89tdoaSXw",
+        escapedBuildId: "\-OQ4pOAuhrN\-89tdoaSXw",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"623d8980191b7e2c792f8a02e5a1f79f",previewModeSigningKey:"7db2efa89493b5c5060966fdec73e1a62da2b4f10e5be210242afcf537034d4f",previewModeEncryptionKey:"b05d037ce383781641c2be7019d742f8b3924fe73dd6da8951aa9bf487663a5b"}
+        encodedPreviewProps: {previewModeId:"df096b8fe9d6afbf87c0bb57d4b78fb9",previewModeSigningKey:"ed381db6c54bff3cb9898546ca7fc3fdf10b7478043acde2bada6f0ead4b6fa2",previewModeEncryptionKey:"33f9c778fb9577c34568600c3613cb8cd7c17f9adccf65e9f739c6d7d4d34e9d"}
       })
       
     
@@ -905,7 +907,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,855,102,799,765], function() { return __webpack_require__(94104); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,855,102,799,765], function() { return __webpack_require__(27507); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
@@ -953,6 +955,36 @@ module.exports = require("zlib");;
 /******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/create fake namespace object */
+/******/ 	!function() {
+/******/ 		var getProto = Object.getPrototypeOf ? function(obj) { return Object.getPrototypeOf(obj); } : function(obj) { return obj.__proto__; };
+/******/ 		var leafPrototypes;
+/******/ 		// create a fake namespace object
+/******/ 		// mode & 1: value is a module id, require it
+/******/ 		// mode & 2: merge all properties of value into the ns
+/******/ 		// mode & 4: return value when already ns object
+/******/ 		// mode & 16: return value when it's Promise-like
+/******/ 		// mode & 8|1: behave like require
+/******/ 		__webpack_require__.t = function(value, mode) {
+/******/ 			if(mode & 1) value = this(value);
+/******/ 			if(mode & 8) return value;
+/******/ 			if(typeof value === 'object' && value) {
+/******/ 				if((mode & 4) && value.__esModule) return value;
+/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 			}
+/******/ 			var ns = Object.create(null);
+/******/ 			__webpack_require__.r(ns);
+/******/ 			var def = {};
+/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 				Object.getOwnPropertyNames(current).forEach(function(key) { def[key] = function() { return value[key]; }; });
+/******/ 			}
+/******/ 			def['default'] = function() { return value; };
+/******/ 			__webpack_require__.d(ns, def);
+/******/ 			return ns;
 /******/ 		};
 /******/ 	}();
 /******/ 	
