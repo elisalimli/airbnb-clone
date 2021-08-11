@@ -504,8 +504,6 @@ const RegisterView = ({
           }), /*#__PURE__*/jsx_runtime.jsx("div", {
             className: "text-primary mt-1 ml-0.5 text-sm",
             children: errors["general"]
-          }), /*#__PURE__*/jsx_runtime.jsx("div", {
-            children: "dsadsad"
           }), /*#__PURE__*/jsx_runtime.jsx(ui_Button, {
             size: "big",
             wrapperClassname: "mt-4",
@@ -592,7 +590,15 @@ const Register = () => {
 
 /***/ }),
 
+<<<<<<< HEAD
+<<<<<<< prod
+/***/ 21675:
+=======
+/***/ 86030:
+>>>>>>> local
+=======
 /***/ 99277:
+>>>>>>> staging
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -685,11 +691,27 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/register",
+<<<<<<< HEAD
+<<<<<<< prod
+        buildId: "3-YmwFD8OxiPPpK8TwNuk",
+        escapedBuildId: "3\-YmwFD8OxiPPpK8TwNuk",
+        basePath: "",
+        pageIsDynamic: false,
+        encodedPreviewProps: {previewModeId:"e8c6dbc8b6a9f258b861b3d8f34ccb1d",previewModeSigningKey:"ce09fe482bbd1dc5ae61206767ba66c4d417baebe21c77a2609673206b08325c",previewModeEncryptionKey:"f1a13187650b8179fecbba4e4b4b8dfaec83a9fbc855b41ee66905caa7dcd511"}
+=======
+        buildId: "g1y_kLbQkjMU1rgu4oXxK",
+        escapedBuildId: "g1y_kLbQkjMU1rgu4oXxK",
+        basePath: "",
+        pageIsDynamic: false,
+        encodedPreviewProps: {previewModeId:"3cb68d5a9b8654daf1767d005c85d560",previewModeSigningKey:"b92f98bbf6df90d482391b619467524b0ad3bf13bdc65f5a1c42e950a78bb823",previewModeEncryptionKey:"e0e1b9f88c4e242f7afdbf9a0018450f617d2bdc35ecb61b808405765ffc0a74"}
+>>>>>>> local
+=======
         buildId: "yiHwTppdnn-Hn3Lqffh8r",
         escapedBuildId: "yiHwTppdnn\-Hn3Lqffh8r",
         basePath: "",
         pageIsDynamic: false,
         encodedPreviewProps: {previewModeId:"f6166b64adbd225be0fe19dd8fa6f071",previewModeSigningKey:"58c1c1a3da4c03b5756b22f39e16cee21da2c0e80ba08bc8be13faa419ff1773",previewModeEncryptionKey:"72364fd9fb2dc4a33b4cb82abbb3e2db51a4c8551cfca0394aef55b0115d1b6a"}
+>>>>>>> staging
       })
       
     
@@ -907,7 +929,15 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
+<<<<<<< HEAD
+<<<<<<< prod
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,855,102,799,765], function() { return __webpack_require__(21675); })
+=======
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,855,102,799,765], function() { return __webpack_require__(86030); })
+>>>>>>> local
+=======
 /******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,855,102,799,765], function() { return __webpack_require__(99277); })
+>>>>>>> staging
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};

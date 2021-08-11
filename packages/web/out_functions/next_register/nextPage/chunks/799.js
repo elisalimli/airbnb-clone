@@ -20,9 +20,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-
-
-
+ // import "../styles/index.css";
+// import "../styles/tailwind.css";
 
 const MyApp = ({
   Component,
@@ -39,56 +38,7 @@ const MyApp = ({
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (MyApp); // /* eslint-disable @typescript-eslint/ban-ts-comment */
-// import Head from "next/head";
-// import "../styles/globals.css";
-// import "../styles/index.css";
-// // if (process.env.NODE_ENV === "production")
-// //   // @ts-ignore
-// //   import("../styles/tailwind.css");
-// const MyApp = ({ Component, pageProps }) => {
-//   // createPageProgressBar();
-//   return (
-//     <>
-//       <Head>
-//         <meta
-//           name="viewport"
-//           content="width=device-width,initial-scale=1,user-scalable=no,user-scalable=0"
-//         />
-//       </Head>
-//       <Component {...pageProps} />
-//     </>
-//   );
-// };
-// export default MyApp;
-// name: Deploy Frontend Production
-// on:
-//   push:
-//     branches: [ prod ]
-// jobs:
-//   Deploy-Frontend-Prod:
-//     runs-on: ubuntu-latest
-//     steps:
-//       - uses: actions/checkout@v2
-//       - run: yarn install
-//       - run: npm run build
-//       - name: Deploy to Netlify
-//         uses: nwtgck/actions-netlify@v1.2
-//         with:
-//           publish-dir: 'packages/web/out'
-//           functions-dir: 'packages/web/out_functions'
-//           # netlify-config-path: './netlify.toml'
-//           production-branch: master
-//           production-deploy: true
-//           github-token: ${{ secrets.GITHUB_TOKEN }}
-//           deploy-message: "Deploy from GitHub Actions"
-//           enable-pull-request-comment: false
-//           enable-commit-comment: true
-//           overwrites-pull-request-comment: true
-//         env:
-//           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-//           NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-//         timeout-minutes: 1
+/* harmony default export */ __webpack_exports__["default"] = (MyApp);
 
 /***/ }),
 
@@ -96,7 +46,15 @@ const MyApp = ({
 /***/ (function(module) {
 
 "use strict";
+<<<<<<< HEAD
+<<<<<<< prod
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7dd9a5a4fd835.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/3-YmwFD8OxiPPpK8TwNuk/_buildManifest.js","static/3-YmwFD8OxiPPpK8TwNuk/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/pages/index-2f71cec45eddb636b346.js"],"/[testId]":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/[testId]-29e3bf2f40b62c6ca39b.js"],"/_app":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/css/6cdf2f5906dfcd401718.css","static/chunks/pages/_app-cddb61138b8a54754e30.js"],"/_error":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/_error-f0c8671670e02d5c5929.js"],"/register":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/660-645bc1d5dc80db6e5f22.js","static/chunks/pages/register-873777373d406a759e5d.js"]},"ampFirstPages":[]}');
+=======
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7dd9a5a4fd835.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/g1y_kLbQkjMU1rgu4oXxK/_buildManifest.js","static/g1y_kLbQkjMU1rgu4oXxK/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-f7ecbd203b2d540840dc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/pages/index-2f71cec45eddb636b346.js"],"/[testId]":["static/chunks/webpack-f7ecbd203b2d540840dc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/[testId]-29e3bf2f40b62c6ca39b.js"],"/_app":["static/chunks/webpack-f7ecbd203b2d540840dc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/css/accd9d5937647992102d.css","static/chunks/pages/_app-483ead074e33898ed04d.js"],"/_error":["static/chunks/webpack-f7ecbd203b2d540840dc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/_error-f0c8671670e02d5c5929.js"],"/register":["static/chunks/webpack-f7ecbd203b2d540840dc.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/660-645bc1d5dc80db6e5f22.js","static/chunks/pages/register-7a8336cd98dee2daf27d.js"]},"ampFirstPages":[]}');
+>>>>>>> local
+=======
 module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-cf519ab7dd9a5a4fd835.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/yiHwTppdnn-Hn3Lqffh8r/_buildManifest.js","static/yiHwTppdnn-Hn3Lqffh8r/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/pages/index-2f71cec45eddb636b346.js"],"/[testId]":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/[testId]-29e3bf2f40b62c6ca39b.js"],"/_app":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/css/6cdf2f5906dfcd401718.css","static/chunks/pages/_app-cddb61138b8a54754e30.js"],"/_error":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/pages/_error-f0c8671670e02d5c5929.js"],"/register":["static/chunks/webpack-881633739544613be7c1.js","static/chunks/framework-e7644ca443da4d182644.js","static/chunks/main-8485358b76258d54cfd6.js","static/chunks/170-535fe368a6977488ae59.js","static/chunks/660-645bc1d5dc80db6e5f22.js","static/chunks/pages/register-873777373d406a759e5d.js"]},"ampFirstPages":[]}');
+>>>>>>> staging
 
 /***/ }),
 
