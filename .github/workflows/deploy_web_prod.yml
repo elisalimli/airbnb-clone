@@ -10,18 +10,29 @@ jobs:
       - uses: actions/checkout@v2 
       - run: yarn install  
       - run: npm run build
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+      - name: Deploy production to Netlify
+        uses: South-Paw/action-netlify-deploy@v1.2.0
         with:
-          publish-dir: 'packages/web/out'
-          functions-dir: 'packages/web/out_functions'
-          production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-        timeout-minutes: 1
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: 'packages/web/out'
+          functions-dir: 'packages/web/out_functions'
+          draft: true
+          comment-on-commit: true
+
+      # - name: Deploy to Netlify
+      #   uses: nwtgck/actions-netlify@v1.2
+      #   with:
+      #     publish-dir: 'packages/web/out'
+      #     functions-dir: 'packages/web/out_functions'
+      #     production-branch: master
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     deploy-message: "Deploy from GitHub Actions"
+      #     enable-pull-request-comment: false
+      #     enable-commit-comment: true
+      #     overwrites-pull-request-comment: true
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+      #   timeout-minutes: 1
