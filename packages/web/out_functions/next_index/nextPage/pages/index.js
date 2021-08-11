@@ -176,7 +176,7 @@ const Home = () => {
 
 /***/ }),
 
-/***/ 43982:
+/***/ 17185:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -269,11 +269,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/",
-        buildId: "N5htJDFui3lgeVQRYJ_YD",
-        escapedBuildId: "N5htJDFui3lgeVQRYJ_YD",
+        buildId: "fu4almYNA4Bu4f-ry7mPW",
+        escapedBuildId: "fu4almYNA4Bu4f\-ry7mPW",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"6b537233548b25a4ae514b573a67091c",previewModeSigningKey:"9d1aa1cf0a7c3c298c44b53b783492b0b480fdb6811dcfa952cf207d1b16cb90",previewModeEncryptionKey:"a2ffc77b3c55ac01356afa3023bb074911f65aac8e69be30e1930544c61a607d"}
+        encodedPreviewProps: {previewModeId:"b1c361a1a7d7add0578b77cd5a4ea158",previewModeSigningKey:"e6d278d4f5aa31535770894f8f3945d0052f26606a326dce84e1372b8f4edb06",previewModeEncryptionKey:"b699f9235e8907d4ad773ae7c6428f54241f65b47c9fb479cf8e28211c57c40b"}
       })
       
     
@@ -434,7 +434,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(43982); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(17185); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
