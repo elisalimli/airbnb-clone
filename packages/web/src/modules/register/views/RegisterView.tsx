@@ -65,8 +65,6 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
                 {errors["general"]}
               </div>
 
-              <div>dsadsad</div>
-
               <Button
                 size="big"
                 wrapperClassname="mt-4"
