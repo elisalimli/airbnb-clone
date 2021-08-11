@@ -7,14 +7,6 @@ echo your current branch is $BRANCH
 echo Do you want to proceed ? [y/n]
 read GO
 
-# if [ $GO == 'y' ]
-# then
-#     echo going on...
-# elif [ $GO == 'n' ]
-# then
-# fi
-
-
 echo Value is $GO
 if [ $GO == 'y' ]
 then
@@ -39,11 +31,10 @@ fi
 echo What should be the commit message?
 read COMMIT
 
+yarn workspace @abb/web style
+
 netlify build
 
 git add .
-git commit -m $COMMIT
+git commit -m "$COMMIT"
 git push
-
-
-
