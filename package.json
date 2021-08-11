@@ -10,7 +10,7 @@
     "start": "yarn workspace @abb/web start",
     "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web,@abb/server}",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
-    "build:web": "lerna run build --scope={@abb/controller,,@abb/common,@abb/web}"
+    "build:web": "lerna run build --scope={@abb/controller,@abb/common,@abb/web}"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^3.8.0",
