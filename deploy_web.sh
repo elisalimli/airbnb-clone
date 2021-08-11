@@ -37,7 +37,7 @@ fi
 
 
 echo What should be the commit message?
-read $COMMIT
+read COMMIT
 
 netlify build
 
