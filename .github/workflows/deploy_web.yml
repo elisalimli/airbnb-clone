@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - run: yarn install  
-      - run: npm run build
+      - run: npm run build:web
       
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
