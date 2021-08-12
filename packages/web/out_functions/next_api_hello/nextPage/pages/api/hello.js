@@ -18,7 +18,7 @@ function helloAPI(req, res) {
 
 /***/ }),
 
-/***/ 9761:
+/***/ 61298:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 
         
       const { processEnv } = __webpack_require__(50782)
-      processEnv([{"path":".env.production","contents":"NEXT_PUBLIC_API_URL=http://167.71.64.47/graphql"}])
+      processEnv([{"path":".env.production","contents":"NEXT_PUBLIC_API_URL=https://api.alisalimli.xyz/graphql"}])
     
         
         const runtimeConfig = {}
@@ -55,7 +55,7 @@ __webpack_require__.r(__webpack_exports__);
           page: "/api/hello",
           basePath: "",
           pageIsDynamic: false,
-          encodedPreviewProps: {previewModeId:"b1c361a1a7d7add0578b77cd5a4ea158",previewModeSigningKey:"e6d278d4f5aa31535770894f8f3945d0052f26606a326dce84e1372b8f4edb06",previewModeEncryptionKey:"b699f9235e8907d4ad773ae7c6428f54241f65b47c9fb479cf8e28211c57c40b"}
+          encodedPreviewProps: {previewModeId:"7e9859f78839d0de7d0a5ac9ecaea897",previewModeSigningKey:"dcf584e31816314590959f8e8f5b9dd61a1108e80159d3732743bc6dde8536af",previewModeEncryptionKey:"4e5a3fcadd7157aebd79120ad969ab58700a8b157a24b3410eaa71b28c09452f"}
         })
         /* harmony default export */ __webpack_exports__["default"] = (apiHandler);
       
@@ -192,7 +192,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,852,102], function() { return __webpack_require__(9761); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,852,102], function() { return __webpack_require__(61298); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};

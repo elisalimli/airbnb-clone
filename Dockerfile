@@ -19,7 +19,6 @@ WORKDIR ./packages/server
 
 RUN yarn install 
 
-# RUN yarn build 
 COPY ./packages/server/prisma ./prisma
 
 RUN npx prisma migrate deploy
