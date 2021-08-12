@@ -6,7 +6,7 @@
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "start": "node dist/index.js",
-    "update": "prisma generate",
+    "gen": "prisma generate",
     "migrate": "prisma migrate dev --name my_migrate"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@abb/common": "1.0.0",
-    "@prisma/client": "^2.27.0",
+    "@prisma/client": "^2.29.0",
     "apollo-server-express": "2.25.2",
     "argon2": "^0.28.2",
     "connect-redis": "^6.0.0",
@@ -33,10 +33,10 @@
     "express-session": "^1.17.2",
     "graphql": "^15.5.1",
     "ioredis": "^4.27.6",
-    "prisma": "2.27.0",
+    "prisma": "^2.29.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
-    "typegraphql-prisma": "^0.14.7",
+    "typegraphql-prisma": "^0.14.8",
     "yup": "^0.32.9"
   }
 }
