@@ -176,7 +176,7 @@ const Home = () => {
 
 /***/ }),
 
-/***/ 54322:
+/***/ 1852:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -207,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 
       
       const { processEnv } = __webpack_require__(50782)
-      processEnv([{"path":".env.production","contents":"NEXT_PUBLIC_API_URL=http://167.71.64.47/graphql"}])
+      processEnv([{"path":".env.production","contents":"NEXT_PUBLIC_API_URL=https://api.alisalimli.xyz/graphql"}])
     
       
       const runtimeConfig = {}
@@ -269,11 +269,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/",
-        buildId: "calv4WJjyzbeqG5C0PLAw",
-        escapedBuildId: "calv4WJjyzbeqG5C0PLAw",
+        buildId: "AeywPmCrJN-sx41m8vIji",
+        escapedBuildId: "AeywPmCrJN\-sx41m8vIji",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"b96171be0012b568942406831fd3a403",previewModeSigningKey:"19992422f6d1c160ad193ea5da32beb48531910f9fc47b58de84ef2219ad5fd8",previewModeEncryptionKey:"64d9bc4a52f8326f02c1c5c4e8354e50e1ffd4ffb885a6925eb3c86c57ea5dc1"}
+        encodedPreviewProps: {previewModeId:"7e9859f78839d0de7d0a5ac9ecaea897",previewModeSigningKey:"dcf584e31816314590959f8e8f5b9dd61a1108e80159d3732743bc6dde8536af",previewModeEncryptionKey:"4e5a3fcadd7157aebd79120ad969ab58700a8b157a24b3410eaa71b28c09452f"}
       })
       
     
@@ -434,7 +434,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(54322); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [749,281,632,251,102,799,765], function() { return __webpack_require__(1852); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};

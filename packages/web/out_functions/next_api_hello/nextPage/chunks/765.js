@@ -64,9 +64,9 @@ var dist = __webpack_require__(77251);
 const createClient = ctx => {
   var _ctx$req;
 
-  console.log("url", "http://167.71.64.47/graphql");
+  console.log("url", "https://api.alisalimli.xyz/graphql");
   return new main_cjs.ApolloClient({
-    uri: "http://167.71.64.47/graphql",
+    uri: "https://api.alisalimli.xyz/graphql",
     credentials: "include",
     headers: {
       cookie: isServer ? ctx === null || ctx === void 0 ? void 0 : (_ctx$req = ctx.req) === null || _ctx$req === void 0 ? void 0 : _ctx$req.headers.cookie : undefined

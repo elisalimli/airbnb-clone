@@ -73,51 +73,23 @@ export type User = {
   updatedAt: Scalars['DateTime'];
 };
 
-export type ErrorFragmentFragment = (
-  { __typename?: 'FieldError' }
-  & Pick<FieldError, 'field' | 'message'>
-);
+export type ErrorFragmentFragment = { __typename?: 'FieldError', field: string, message: string };
 
-export type RegistrationFragmentFragment = (
-  { __typename?: 'RegistrationResponse' }
-  & Pick<RegistrationResponse, 'ok'>
-  & { errors?: Maybe<Array<(
-    { __typename?: 'FieldError' }
-    & ErrorFragmentFragment
-  )>>, user?: Maybe<(
-    { __typename?: 'User' }
-    & UserFragmentFragment
-  )> }
-);
+export type RegistrationFragmentFragment = { __typename?: 'RegistrationResponse', ok: boolean, errors?: Maybe<Array<{ __typename?: 'FieldError', field: string, message: string }>>, user?: Maybe<{ __typename?: 'User', id: string, username: string }> };
 
-export type UserFragmentFragment = (
-  { __typename?: 'User' }
-  & Pick<User, 'id' | 'username'>
-);
+export type UserFragmentFragment = { __typename?: 'User', id: string, username: string };
 
 export type RegisterMutationVariables = Exact<{
   input: RegisterInput;
 }>;
 
 
-export type RegisterMutation = (
-  { __typename?: 'Mutation' }
-  & { register: (
-    { __typename?: 'RegistrationResponse' }
-    & RegistrationFragmentFragment
-  ) }
-);
+export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'RegistrationResponse', ok: boolean, errors?: Maybe<Array<{ __typename?: 'FieldError', field: string, message: string }>>, user?: Maybe<{ __typename?: 'User', id: string, username: string }> } };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = (
-  { __typename?: 'Query' }
-  & { me?: Maybe<(
-    { __typename?: 'User' }
-    & UserFragmentFragment
-  )> }
-);
+export type MeQuery = { __typename?: 'Query', me?: Maybe<{ __typename?: 'User', id: string, username: string }> };
 
 export const ErrorFragmentFragmentDoc = gql`
     fragment ErrorFragment on FieldError {

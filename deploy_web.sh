@@ -37,4 +37,4 @@ netlify build
 
 git add .
 git commit -m "$COMMIT"
-git push
+git push origin $USER_BRANCH
