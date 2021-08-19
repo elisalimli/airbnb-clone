@@ -25,8 +25,9 @@ export const main = async () => {
   );
 
   app.use(sessionMiddleware);
+
   // for cookie
-  // app.set("trust proxy", 1);
+  app.set("trust proxy", 1);
 
   const schema = (await buildSchema({
     resolvers: [

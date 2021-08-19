@@ -1,0 +1,20 @@
+{
+  "name": "graphql-generator",
+  "version": "1.0.0",
+  "description": "generating graphql functions for frontend using graphql-codegen",
+  "main": "index.js",
+  "scripts": {
+    "gen": "graphql-codegen --config codegen.yml"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.0.1",
+    "@graphql-codegen/typescript-operations": "2.0.1",
+    "@graphql-codegen/typescript": "2.0.0",
+    "@graphql-codegen/typescript-react-apollo": "3.0.0"
+  }
+}
