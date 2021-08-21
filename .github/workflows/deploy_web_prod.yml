@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v2 
       - run: yarn install  
       - run: npm run build
+      - run: npm install netlify-cli -g
+      - run: netlify build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
