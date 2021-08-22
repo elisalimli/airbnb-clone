@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - run: yarn install  
-      - run: npm run build
+      - run: yarn build:web
       - run: npm install netlify-cli -g
       - run: netlify build
 
