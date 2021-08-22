@@ -39,5 +39,6 @@
     "type-graphql": "^1.1.1",
     "typegraphql-prisma": "^0.14.8",
     "yup": "^0.32.9"
-  }
+  },
+  "license": "MIT"
 }
