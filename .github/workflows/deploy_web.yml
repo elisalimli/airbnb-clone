@@ -13,6 +13,7 @@ jobs:
           yarn install 
           npm run build:web
           npm install -g netlify-cli
+          netlify login --auth=${{ secrets.NETLIFY_TOKEN }}
           netlify link --id ${{ secrets.SITE_ID }}
           netlify build
 
