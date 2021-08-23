@@ -20,5 +20,6 @@
   "devDependencies": {
     "expo-yarn-workspaces": "^1.5.2",
     "netlify-cli": "^6.0.3"
-  }
+  },
+  "packageManager": "yarn@3.0.1"
 }
