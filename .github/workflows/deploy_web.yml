@@ -14,6 +14,7 @@ jobs:
           npm run build:web
           npm install -g netlify-cli
           netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
+          netlify login --auth=${{ secrets.NETLIFY_TOKEN }}
           netlify build
 
       - name: Deploy to Netlify
@@ -33,3 +34,5 @@ jobs:
         timeout-minutes: 1
 
 
+
+          
