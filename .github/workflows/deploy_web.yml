@@ -12,24 +12,24 @@ jobs:
         run: |
           yarn install 
           npm run build:web
-          yarn build:netlify
+          npm install -g netlify-cli
+          netlify link --id ${{ secrets.SITE_ID }}
+          netlify build
 
-      - name: Build with Netlify
-        uses: jsmrcaga/action-netlify-deploy@master
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+          publish-dir: 'packages/web/out'
+          functions-dir: 'packages/web/out_functions'
+          production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: false
-          netlify-config-path: ./netlify.toml
-          build_command: netlify deploy --build
-          build_directory: packages/web/out
-          functions-dir: packages/web/out_functions
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+        timeout-minutes: 1
 
 
