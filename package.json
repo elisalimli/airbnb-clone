@@ -10,6 +10,7 @@
     "gen": "cd graphql && yarn gen",
     "start": "yarn workspace @abb/web start",
     "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web,@abb/server}",
+    "build:netlify": "netlify build",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
     "build:web": "lerna run build --scope={@abb/controller,@abb/common,@abb/web}"
   },
