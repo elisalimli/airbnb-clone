@@ -11,7 +11,7 @@ jobs:
       - name: Build the site & install dependicies
         run: |
           yarn install 
-          yarn build:web
+          npm run build:web
           yarn build:netlify
 
       - name: Build with Netlify
