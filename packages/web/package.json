@@ -10,8 +10,8 @@
     "style": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/index.css"
   },
   "dependencies": {
-    "@abb/common": "workspace:*",
-    "@abb/controller": "workspace:*",
+    "@abb/common": "1.0.0",
+    "@abb/controller": "1.0.0",
     "@apollo/client": "^3.3.21",
     "@netlify/plugin-nextjs": "^3.8.0",
     "babel-preset-es2015": "^6.24.1",
