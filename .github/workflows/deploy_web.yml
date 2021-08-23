@@ -22,18 +22,8 @@ jobs:
           netlify-config-path: ./netlify.toml
           build_directory: packages/web/out
           functions-dir: packages/web/out_functions
-          build_command: npm run build:
+          build_command: npm run build
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-            
-
-
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v1.2
-      #   with:
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-      #   timeout-minutes: 1      
