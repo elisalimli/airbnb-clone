@@ -20,9 +20,9 @@ jobs:
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: false
           netlify-config-path: ./netlify.toml
+          build_command: npm run build:netlify
           build_directory: packages/web/out
           functions-dir: packages/web/out_functions
-          build_command: npm run build
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
