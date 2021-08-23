@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "style": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/index.css"
+    "style": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/prod.css"
   },
   "dependencies": {
     "@abb/common": "1.0.0",

@@ -21,7 +21,8 @@ node_modules/
 .netlify
 netlify
 
-out
-out_functions   
-
+out*
 expo/*
+
+# tailwind css for production
+prod.css

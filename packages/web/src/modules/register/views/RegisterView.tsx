@@ -23,7 +23,6 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
       <div style={{ maxWidth: 300 }} className="mx-auto">
         <Formik<RegisterFormValues>
           initialValues={{ username: "", email: "", password: "" }}
-          // i am saying any,because i don't need this type definitions
           onSubmit={async (...props) => {
             const res = await handleSubmit(...props);
             console.log(res);
@@ -64,8 +63,6 @@ const RegisterView: React.FC<Props> = ({ handleSubmit }) => {
               <div className="text-primary mt-1 ml-0.5 text-sm">
                 {errors["general"]}
               </div>
-
-              <div>updated </div>
 
               <Button
                 size="big"

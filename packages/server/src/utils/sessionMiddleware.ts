@@ -16,7 +16,7 @@ export const sessionMiddleware = session({
     httpOnly: true,
     sameSite: "lax", //csrf,
     domain: isProduction ? ".alisalimli.xyz" : undefined,
-    // secure: isProduction, // cookie only works in https,
+    secure: isProduction, // cookie only works in https,
   },
   secret: process.env.FRONTEND_HOST as string,
   resave: false,

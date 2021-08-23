@@ -3,7 +3,7 @@ import "../styles/globals.css";
 
 // import tailwind css file in development for optimizing performance
 if (process.env.NODE_ENV === "development") require("../styles/tailwind.css");
-else if (process.env.NODE_ENV === "production") require("../styles/index.css");
+else if (process.env.NODE_ENV === "production") require("../styles/prod.css");
 
 const MyApp = ({ Component, pageProps }) => {
   // createPageProgressBar();
