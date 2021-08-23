@@ -7,7 +7,6 @@
     ]
   },
   "scripts": {
-    "gen": "cd graphql && yarn gen",
     "start": "yarn workspace @abb/web start",
     "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web,@abb/server}",
     "build:netlify": "netlify build",

@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - run: yarn install  
-      - run: npm run build:web
+      - name: Build the site & install dependicies
+        run: |
+          yarn install --production
+          yarn build:web
+          yarn build:netlify
 
       - name: Build with Netlify
         uses: jsmrcaga/action-netlify-deploy@master
@@ -20,10 +23,13 @@ jobs:
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: false
           netlify-config-path: ./netlify.toml
-          build_command: npm run build:netlify
+          build_command: netlify deploy --build
           build_directory: packages/web/out
           functions-dir: packages/web/out_functions
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
+
+
+
