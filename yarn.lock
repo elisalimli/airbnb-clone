@@ -5,7 +5,7 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@abb/common@1.0.0, @abb/common@workspace:*, @abb/common@workspace:packages/common":
+"@abb/common@1.0.0, @abb/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@abb/common@workspace:packages/common"
   dependencies:
@@ -18,7 +18,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@abb/controller@workspace:*, @abb/controller@workspace:packages/controller":
+"@abb/controller@1.0.0, @abb/controller@workspace:packages/controller":
   version: 0.0.0-use.local
   resolution: "@abb/controller@workspace:packages/controller"
   dependencies:
@@ -74,8 +74,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@abb/web@workspace:packages/web"
   dependencies:
-    "@abb/common": "workspace:*"
-    "@abb/controller": "workspace:*"
+    "@abb/common": 1.0.0
+    "@abb/controller": 1.0.0
     "@apollo/client": ^3.3.21
     "@graphql-codegen/cli": ^2.0.1
     "@netlify/plugin-nextjs": ^3.8.0
