@@ -9,18 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - run: yarn install  
-      - run: yarn build:web
-
-      # building code
-      - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: false
-          build_command: npm i -g netlify-cli && netlify build
-
-      # deploy 
+      - run: npm run build:web
+      
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
@@ -35,4 +25,11 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-        timeout-minutes: 1
+        timeout-minutes: 1      
+      # - uses: jsmrcaga/action-netlify-deploy@master
+      #   with:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
+      #     NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+      #     NETLIFY_DEPLOY_TO_PROD: false
+      #     build_command: npm i -g netlify-cli && netlify build
