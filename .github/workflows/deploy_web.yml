@@ -11,6 +11,7 @@ jobs:
       - name: Build the site & install dependicies
         run: |
           yarn install
+          yarn workspace @abb/web style
           npx netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
           npx netlify build --auth=${{ secrets.NETLIFY_TOKEN }}          
 
