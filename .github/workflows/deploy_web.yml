@@ -8,18 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - name: Build the site & install dependicies
-        run: |
-          yarn install 
-          npm run build:web
-          npm install -g netlify-cli
-          netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
-
+      
+      - name: Install dependicies
+        run: yarn install 
+      
       - name: Build 
-        run: |
-          netlify login --auth=${{ secrets.NETLIFY_TOKEN }}
-          netlify build
-
+        run: npx netlify build --auth=${{ secrets.NETLIFY_TOKEN }}
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
