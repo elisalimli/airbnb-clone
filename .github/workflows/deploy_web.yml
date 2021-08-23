@@ -8,15 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - name: Install dependicies
-        run: yarn install 
-
-      - name: Build 
+      - name: Build the site & install dependicies
         run: |
           npx netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
           npx netlify login --auth=${{ secrets.NETLIFY_TOKEN }}
-          npx netlify build
-
+          npx netlify build          
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
@@ -32,9 +28,4 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-          netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
         timeout-minutes: 1
-
-
-
-          
