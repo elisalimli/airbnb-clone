@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2 
       - name: Build the site & install dependicies
         run: |
-          yarn install --production
+          yarn install 
           yarn build:web
           yarn build:netlify
 
