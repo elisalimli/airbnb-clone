@@ -18,10 +18,8 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: false
-          build_command: | 
-          npm i -g netlify-cli 
-          netlify build
-          
+          build_command: npm i -g netlify-cli && netlify build
+
       # deploy 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
