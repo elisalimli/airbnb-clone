@@ -1,7 +1,7 @@
 *.log
 dist/
 node_modules/
-.env
+# .env
 .env.local
 .env.prod
 .next/
