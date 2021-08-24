@@ -23,7 +23,7 @@ RUN yarn install --production
 
 COPY --from=builder /abb/packages/server/dist ./packages/server/dist
 COPY --from=builder /abb/packages/common/dist ./packages/common/dist
-COPY ./packages/server/.env.prod ./packages/server/.env
+# COPY ./packages/server/.env.prod ./packages/server/.env
 COPY ./packages/server/.env.example ./packages/server/
 
 WORKDIR ./packages/server
