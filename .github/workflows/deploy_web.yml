@@ -1,32 +1,14 @@
-name: Deploy Frontend
+name: Deploy Frontend Prod
 on: 
   push:
-    branches: [ staging ]
+    branches: [ prod ]
 
 jobs:
   Deploy-Frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - name: Build the site & install dependicies
-        run: |
-          yarn install
-          yarn workspace @abb/web style
-          npx netlify link  --auth=${{ secrets.NETLIFY_TOKEN }} --id ${{ secrets.SITE_ID }}
-          npx netlify build --auth=${{ secrets.NETLIFY_TOKEN }}          
-
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
-        with:
-          publish-dir: 'packages/web/out'
-          functions-dir: 'packages/web/out_functions'
-          production-branch: master
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.SITE_ID }}
-        timeout-minutes: 1
+      - run: yarn install  
+      - run: npm run build:web
+      - run: yarn workspace @abb/web style
+      - run: curl -X POST -d {} ${{ secrets.BUILD_HOOK }}

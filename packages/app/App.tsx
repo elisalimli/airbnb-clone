@@ -6,7 +6,9 @@ import { add } from "@abb/common";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app heey {add(5, 4)} !</Text>
+      <Text>
+        Open up App.tsx to start working on your app heey man {add(2, 4)} !
+      </Text>
       <StatusBar style="auto" />
     </View>
   );
