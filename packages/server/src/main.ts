@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import "dotenv-safe/config";
-import { ApolloServer } from "apollo-server-express";
+import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
 import express from "express";
 import { buildSchema } from "type-graphql";
@@ -14,7 +14,7 @@ import { prisma } from "./utils/prisma";
 
 const PORT = process.env.PORT || 4000;
 
-export const main = async () => {
+export const main: () => any = async () => {
   const app = express();
 
   app.use(
@@ -29,7 +29,7 @@ export const main = async () => {
   // for cookie
   app.set("trust proxy", 1);
 
-  const schema = (await buildSchema({
+  const schema = await buildSchema({
     resolvers: [
       // Mutations
       RegisterResolver,
@@ -39,26 +39,21 @@ export const main = async () => {
       MeResolver,
     ],
     validate: false,
-  })) as any;
-
-  const apolloServer = new ApolloServer({
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    schema,
-    playground: true,
-    introspection: true,
-    context: ({ req, res }: MyContext): MyContext => ({
-      req: req as any,
-      res: res as any,
-      prisma,
-      redis,
-    }),
   });
 
-  apolloServer.applyMiddleware({
-    app,
-    cors: false,
-  });
+  app.use(
+    "/graphql",
+    graphqlHTTP({
+      schema,
+      context: ({ req, res }: MyContext): MyContext => ({
+        req,
+        res,
+        prisma,
+        redis,
+      }),
+      graphiql: true,
+    })
+  );
 
   app.listen(PORT, () => {
     console.log(`server listening on port ${PORT}`);

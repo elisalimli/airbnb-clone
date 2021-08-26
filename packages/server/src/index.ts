@@ -1,9 +1,11 @@
 import { main } from "./main";
+import { prisma } from "./utils/prisma";
 
-main().catch((err) => {
-  console.log(err);
-  process.exit(1);
-});
-// .finally(() => {
-//    prisma.$disconnect();
-// });
+main()
+  .catch((err: any) => {
+    console.log(err);
+    process.exit(1);
+  })
+  .finally(() => {
+    prisma.$disconnect();
+  });

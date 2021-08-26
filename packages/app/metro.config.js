@@ -7,8 +7,8 @@
 const path = require("path");
 
 const watchFolders = [
-  path.resolve(__dirname, "../..", "node_modules"),
-  path.resolve(path.join(__dirname, "/../common/")),
+  path.resolve(__dirname, ".", "node_modules"),
+  path.resolve(path.join(__dirname, "../common")),
 ];
 
 module.exports = {
