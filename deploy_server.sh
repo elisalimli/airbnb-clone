@@ -3,6 +3,8 @@
 echo What should be the version ?
 read VERSION
 
+npm run build:server
+
 # Build docker image
 docker build -t alisalim17/abb:$VERSION .  
 
