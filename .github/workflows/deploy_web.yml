@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - run: yarn install  
-      - run: npm run build:web
       - run: yarn workspace @abb/web style
+      - run: npm run build:web
       - run: curl -X POST -d {} ${{ secrets.BUILD_HOOK }}
