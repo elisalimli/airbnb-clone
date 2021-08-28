@@ -7,25 +7,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "style": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/prod.css"
+    "style": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/prod.css",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@abb/common": "1.0.0",
     "@abb/controller": "1.0.0",
-    "@apollo/client": "^3.3.21",
     "@netlify/plugin-nextjs": "^3.8.0",
+    "@urql/core": "^2.3.1",
+    "@urql/exchange-graphcache": "^4.3.1",
     "babel-preset-es2015": "^6.24.1",
     "formik": "^2.2.9",
     "graphql": "^15.5.1",
     "next": "latest",
-    "next-apollo": "^5.0.6",
     "next-transpile-modules": "^8.0.0",
+    "next-urql": "^3.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-loader-spinner": "^4.0.0"
+    "react-is": "^17.0.2",
+    "react-loader-spinner": "^4.0.0",
+    "urql": "^2.0.4",
+    "wonka": "^4.0.15"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.0.1",
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/typescript": "2.1.2",
+    "@graphql-codegen/typescript-operations": "2.1.2",
+    "@graphql-codegen/typescript-urql": "^3.1.2",
     "@types/node": "^16.3.2",
     "@types/react": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^4.28.3",

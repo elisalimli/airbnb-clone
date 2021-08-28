@@ -11,13 +11,19 @@
     "build": "lerna run build --scope={@abb/controller,@abb/common,@abb/web,@abb/server}",
     "build:netlify": "netlify build",
     "build:server": "lerna run build --scope={@abb/common,@abb/server}",
-    "build:web": "lerna run build --scope={@abb/controller,@abb/common,@abb/web}"
+    "build:web": "lerna run build --scope={@abb/controller,@abb/common,@abb/web}",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^3.8.0",
+    "graphql": "^15.5.1",
     "lerna": "^4.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/typescript": "2.1.2",
+    "@graphql-codegen/typescript-operations": "2.1.2",
+    "@graphql-codegen/typescript-react-query": "^2.1.2",
     "expo-yarn-workspaces": "^1.5.2",
     "netlify-cli": "^6.0.3"
   },

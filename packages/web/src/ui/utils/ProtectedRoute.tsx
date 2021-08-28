@@ -2,20 +2,19 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useEffect } from "react";
 import { useMeQuery } from "../../generated/graphql";
+import { isServer } from "../../utils/isServer";
 import Spinner from "../Spinner";
 
 type ReturnType = any;
 
 const ProtectedRoute: React.FC<ReturnType> = ({ children }) => {
   const router = useRouter();
-  const { data, loading } = useMeQuery({ notifyOnNetworkStatusChange: true });
+  const [{ data, fetching }] = useMeQuery();
   const user = data?.me;
-
-  console.log(loading, data);
 
   useEffect(() => {
     if (!user) router.replace("/register");
-  }, [loading, user]);
+  }, [fetching, user]);
 
   if (user) return children;
 

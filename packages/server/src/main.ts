@@ -1,16 +1,15 @@
 import "reflect-metadata";
-import "dotenv-safe/config";
-import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
+import "dotenv-safe/config";
 import express from "express";
+import { graphqlHTTP } from "express-graphql";
 import { buildSchema } from "type-graphql";
 import { RegisterResolver } from "./graphql/resolvers";
 import { LoginResolver } from "./graphql/resolvers/user/login/resolver";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/resolver";
 import { MeResolver } from "./graphql/resolvers/user/me/resolver";
-import { MyContext } from "./types/MyContext";
-import { redis, sessionMiddleware } from "./utils";
-import { prisma } from "./utils/prisma";
+import { redis, sessionMiddleware, prisma } from "./utils";
+import expressPlayground from "graphql-playground-middleware-express";
 
 const PORT = process.env.PORT || 4000;
 
@@ -43,17 +42,19 @@ export const main: () => any = async () => {
 
   app.use(
     "/graphql",
-    graphqlHTTP({
+    graphqlHTTP((req, res) => ({
       schema,
-      context: ({ req, res }: MyContext): MyContext => ({
+      context: {
         req,
         res,
         prisma,
         redis,
-      }),
+      },
       graphiql: true,
-    })
+    }))
   );
+
+  app.get("/playground", expressPlayground({ endpoint: "/graphql" }));
 
   app.listen(PORT, () => {
     console.log(`server listening on port ${PORT}`);
