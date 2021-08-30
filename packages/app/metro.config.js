@@ -5,20 +5,27 @@
  * @format
  */
 const path = require("path");
+const { createMetroConfiguration } = require("expo-yarn-workspaces");
 
 const watchFolders = [
-  path.resolve(__dirname, ".", "node_modules"),
-  path.resolve(path.join(__dirname, "../common")),
+  path.resolve(__dirname, "../..", "node_modules"),
+  // add news when you add new package
+  path.resolve(path.join(__dirname, "../controller")),
 ];
 
+const expoYarnWorkspaces = createMetroConfiguration(__dirname);
+
 module.exports = {
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
+  ...{
+    transformer: {
+      getTransformOptions: async () => ({
+        transform: {
+          experimentalImportSupport: false,
+          inlineRequires: false,
+        },
+      }),
+    },
+    watchFolders,
   },
-  watchFolders,
+  ...expoYarnWorkspaces,
 };

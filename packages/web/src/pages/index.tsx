@@ -6,6 +6,7 @@ import { createUrqlClient } from "../utils/createUrqlClient";
 
 const Home = () => {
   const [{ data }] = useMeQuery();
+
   return (
     <ProtectedRoute>
       <div>Hello world 2 {data?.me?.username}</div>

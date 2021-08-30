@@ -4,9 +4,11 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "dependencies": {
+    "@urql/exchange-graphcache": "^4.3.2",
     "formik": "^2.2.9",
     "graphql": "^15.5.1",
     "next": "^11.0.1",

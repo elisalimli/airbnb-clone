@@ -1,27 +1,39 @@
 {
   "name": "@abb/app",
+  "main": "__generated__/AppEntry.js",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
     "@abb/common": "1.0.0",
+    "@abb/controller": "1.0.0",
     "@apollo/client": "^3.4.9",
+    "@expo/vector-icons": "^12.0.5",
+    "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
+    "@urql/devtools": "^2.0.3",
+    "@urql/exchange-graphcache": "^4.3.2",
+    "babel-preset-expo": "^8.4.1",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
+    "formik": "^2.2.9",
     "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "styled-components": "^5.3.1",
+    "urql": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

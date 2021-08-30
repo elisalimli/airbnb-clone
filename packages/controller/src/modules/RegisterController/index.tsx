@@ -6,7 +6,7 @@ import {
   RegisterMutation,
 } from "../../generated/graphql";
 import { FormikSubmit, RegisterFormValues } from "../../types";
-import { toErrorMap } from "../../utils/toErrorMap";
+import { toErrorMap } from "../../utils";
 
 type Register = (
   variables?: Exact<{
@@ -28,7 +28,7 @@ export const RegisterController: React.FC<{
     });
     const errors = res?.data?.register.errors;
 
-    console.log(errors);
+    console.log("errors", errors, res?.data?.register);
 
     setSubmitting(false);
     if (errors) {

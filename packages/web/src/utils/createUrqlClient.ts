@@ -1,9 +1,8 @@
 import { cacheExchange } from "@urql/exchange-graphcache";
 import { dedupExchange, Exchange, fetchExchange } from "urql";
 import { pipe, tap } from "wonka";
-import { MeDocument, MeQuery, RegisterMutation } from "../generated/graphql";
-import { betterUpdateQuery } from "./betterUpdateQuery";
 import { isServer } from "./isServer";
+import { urqlCacheExchange } from "@abb/controller";
 
 const errorExchange: Exchange =
   ({ forward }) =>
@@ -20,11 +19,8 @@ const errorExchange: Exchange =
   };
 
 export const createUrqlClient = (ssrExchange: any, ctx: any) => {
-  let cookie = "";
-  if (isServer) {
-    cookie = ctx?.req?.headers?.cookie;
-  }
-
+  const cookie = isServer ? ctx?.req?.headers?.cookie : "";
+  console.log(cookie);
   return {
     url: process.env.NEXT_PUBLIC_API_URL,
     fetchOptions: {
@@ -37,25 +33,7 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
     },
     exchanges: [
       dedupExchange,
-      cacheExchange({
-        updates: {
-          Mutation: {
-            register: (_result, _, cache, __) => {
-              betterUpdateQuery<RegisterMutation, MeQuery>(
-                cache,
-                { query: MeDocument },
-                _result,
-                (result, data) => {
-                  if (result.register.errors) return data;
-                  return {
-                    me: result.register.user,
-                  };
-                }
-              );
-            },
-          },
-        },
-      }),
+      cacheExchange(urqlCacheExchange),
       errorExchange,
       ssrExchange,
       fetchExchange,

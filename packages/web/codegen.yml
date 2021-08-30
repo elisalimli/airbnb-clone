@@ -12,3 +12,9 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-urql"
+  ../app/src/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-urql"
+
