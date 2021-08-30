@@ -19,6 +19,8 @@ __metadata:
     "@react-navigation/native-stack": ^6.1.0
     "@types/react": ~16.9.35
     "@types/react-native": ~0.63.2
+    "@types/styled-components": ^5.1.13
+    "@types/styled-components-react-native": ^5.1.1
     "@urql/devtools": ^2.0.3
     "@urql/exchange-graphcache": ^4.3.2
     babel-preset-expo: ^8.4.1
@@ -6676,6 +6678,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:*":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
+  languageName: node
+  linkType: hard
+
 "@types/html-minifier-terser@npm:^5.0.0":
   version: 5.1.2
   resolution: "@types/html-minifier-terser@npm:5.1.2"
@@ -6899,6 +6911,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native@npm:*":
+  version: 0.64.13
+  resolution: "@types/react-native@npm:0.64.13"
+  dependencies:
+    "@types/react": "*"
+  checksum: 3e53cc7d31d5b3a134871bcc6a0c61c10caecc90f5b2d691fd8f8a480f145395098924146a05a4eb7d1a1ddaa516becdc600cdf1d50a6443e4324f94ec2e987e
+  languageName: node
+  linkType: hard
+
 "@types/react-native@npm:~0.63.2":
   version: 0.63.53
   resolution: "@types/react-native@npm:0.63.53"
@@ -7009,6 +7030,28 @@ __metadata:
   version: 1.0.1
   resolution: "@types/stack-utils@npm:1.0.1"
   checksum: 9dc052b575acfeca3f165fb19d87b7b2989d54ed7d64a7eeb0b7587bc5795ef1f2c2b1511a44dcf0831ef35b8ce3486f97fcbfdd50c01f68aa297de31502c9d9
+  languageName: node
+  linkType: hard
+
+"@types/styled-components-react-native@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@types/styled-components-react-native@npm:5.1.1"
+  dependencies:
+    "@types/react": "*"
+    "@types/react-native": "*"
+    "@types/styled-components": "*"
+  checksum: 05352c425cc12954bfaa21d1539b9c5720dc637f4b3fceba1ce6159db29fbe31f0f745a1e2b421809871bfdef461bb26a9c5d502f222f111651839f502c0de39
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:*, @types/styled-components@npm:^5.1.13":
+  version: 5.1.13
+  resolution: "@types/styled-components@npm:5.1.13"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: 9e7244149344232a95997ac7f9df1bd6fb422609b7e5bc5c810d02e1ab709f3874425ba7f8096a8823c529348a8ce909cea660986af2799399f85d16ad10db71
   languageName: node
   linkType: hard
 

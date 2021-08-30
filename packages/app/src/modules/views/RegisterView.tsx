@@ -2,14 +2,20 @@ import { registerSchema } from "@abb/common";
 import { FormikSubmit, RegisterFormValues } from "@abb/controller";
 import { Formik } from "formik";
 import React from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { Button } from "react-native";
+import styled from "styled-components/native";
 import InputField from "../../ui/Form/InputField";
+import { theme } from "../../utils/theme";
 
 interface Props {
   onSubmit: FormikSubmit<RegisterFormValues>;
 }
 
 type ButtonOnPress = any;
+
+const FormContainer = styled.View`
+  padding: ${theme.spacing[4]};
+`;
 
 const RegisterView: React.FC<Props> = ({ onSubmit }) => {
   return (
@@ -23,26 +29,28 @@ const RegisterView: React.FC<Props> = ({ onSubmit }) => {
       validationSchema={registerSchema}
     >
       {({ handleSubmit }) => (
-        <View style={styles.formContainer}>
-          <InputField fieldName="username" placeholder="username" />
-          <InputField fieldName="email" placeholder="email" />
+        <FormContainer>
           <InputField
+            iconName="user"
+            fieldName="username"
+            placeholder="Enter your username"
+          />
+          <InputField
+            iconName="mail"
+            fieldName="email"
+            placeholder="Enter your email"
+          />
+          <InputField
+            iconName="lock"
             fieldName="password"
-            placeholder="password"
+            placeholder="Enter your password"
             secureTextEntry
           />
-
           <Button onPress={handleSubmit as ButtonOnPress} title="Submit" />
-        </View>
+        </FormContainer>
       )}
     </Formik>
   );
 };
-
-const styles = StyleSheet.create({
-  formContainer: {
-    padding: 10,
-  },
-});
 
 export default RegisterView;
