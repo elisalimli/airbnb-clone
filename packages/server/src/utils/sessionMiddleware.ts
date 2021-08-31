@@ -1,9 +1,6 @@
-import connectRedis from "connect-redis";
 import session from "express-session";
 import { isProduction } from "./constants";
-import { redis, COOKIE_NAME } from "./index";
-
-const RedisStore = connectRedis(session);
+import { COOKIE_NAME, redis, RedisStore } from "./index";
 
 export const sessionMiddleware = session({
   name: COOKIE_NAME,

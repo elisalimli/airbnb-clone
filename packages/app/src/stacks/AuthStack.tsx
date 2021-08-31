@@ -1,9 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { Button, Text, View } from "react-native";
-import { RegisterController } from "../../../controller/dist";
-import { useRegisterMutation } from "../generated/graphql";
-import RegisterView from "../modules/views/RegisterView";
+import Register from "../modules/routes/Register";
 import {
   AuthNavProps,
   AuthParamList,
@@ -24,19 +22,10 @@ const Login: React.FC<AuthNavProps<"Login">> = ({ navigation }) => {
   );
 };
 
-const Register: React.FC<AuthNavProps<"Register">> = () => {
-  const [, register] = useRegisterMutation();
-  return (
-    <RegisterController register={register}>
-      {(submit) => (<RegisterView onSubmit={submit} />) as any}
-    </RegisterController>
-  );
-};
-
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      // screenOptions={{ header: () => null }}
+      screenOptions={{ headerShown: false }}
       initialRouteName="Register"
     >
       <Stack.Screen
@@ -44,13 +33,7 @@ const AuthStack = () => {
         name="Login"
         component={Login}
       />
-      <Stack.Screen
-        name="Register"
-        component={Register}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 };

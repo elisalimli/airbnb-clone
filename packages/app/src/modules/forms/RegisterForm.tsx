@@ -17,7 +17,7 @@ const FormContainer = styled.View`
   padding: ${theme.spacing[4]};
 `;
 
-const RegisterView: React.FC<Props> = ({ onSubmit }) => {
+const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
   return (
     <Formik<RegisterFormValues>
       initialValues={{ username: "", email: "", password: "" }}
@@ -53,4 +53,4 @@ const RegisterView: React.FC<Props> = ({ onSubmit }) => {
   );
 };
 
-export default RegisterView;
+export default RegisterForm;

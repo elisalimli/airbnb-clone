@@ -13,7 +13,7 @@ export const theme = {
     h3: 20,
     h2: 24,
     h1: 26,
-    "4xl": 30,
+    "4xl": "30px",
     // "5xl": 48,
     // "6xl": 64,
     // "7xl": 80,
@@ -47,8 +47,6 @@ export const theme = {
 
   colors: {
     transparent: "transparent",
-    current: "currentColor",
-
     black: "#000",
     white: "#fff",
     primary: "#2CB9B0",

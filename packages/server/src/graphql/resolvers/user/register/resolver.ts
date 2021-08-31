@@ -47,7 +47,7 @@ export class RegisterResolver {
           ok: false,
           errors: [
             {
-              field: duplicateKey,
+              field: "generalw",
               message: `this ${duplicateKey} already taken`,
             },
           ],
