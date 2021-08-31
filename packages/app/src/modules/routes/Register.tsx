@@ -1,12 +1,12 @@
+import { RegisterController } from "@abb/controller";
 import React from "react";
+import { View } from "react-native";
+import styled from "styled-components/native";
 import { useRegisterMutation } from "../../generated/graphql";
 import { AuthNavProps } from "../../types/navigations/AuthParamList";
-import RegisterForm from "../forms/RegisterForm";
-import { RegisterController } from "@abb/controller";
-import { Text, View } from "react-native";
-import styled from "styled-components/native";
-import Flex from "../../ui/Flex";
+import Typography from "../../ui/Typography";
 import { theme } from "../../utils/theme";
+import RegisterForm from "../forms/RegisterForm";
 
 const HeaderContainer = styled.View`
   flex: 1;
@@ -15,30 +15,33 @@ const HeaderContainer = styled.View`
   align-items: flex-end;
 `;
 
-const Header = styled.Text`
-  color: ${theme.colors.white};
-  font-size: ${theme.fontSize["4xl"]};
-  font-weight: ${theme.fontWeight.bold};
-  padding: ${theme.spacing[3]};
-`;
-
 const Container = styled.View`
   flex: 5;
   background-color: ${theme.colors.white};
-  border-top-left-radius: 50;
-  border-top-right-radius: 50;
-  padding-top: 20;
-  padding-right: 20;
-  padding-bottom: 20;
-  padding-left: 20;
+  border-top-left-radius: ${theme.borderRadius[50]}px;
+  border-top-right-radius: ${theme.borderRadius[50]}px;
+  padding-top: ${theme.spacing[4]}px;
+  padding-right: ${theme.spacing[4]}px;
+  padding-bottom: ${theme.spacing[4]}px;
+  padding-left: ${theme.spacing[4]}px;
 `;
 
 const Register: React.FC<AuthNavProps<"Register">> = () => {
   const [, register] = useRegisterMutation();
+
   return (
     <View style={{ flex: 1, backgroundColor: "transparent" }}>
       <HeaderContainer>
-        <Header>Welcome</Header>
+        <Typography
+          extraStyle={{
+            padding: theme.spacing[2],
+          }}
+          color="white"
+          fontWeight="bold"
+          size="4xl"
+        >
+          Sign up
+        </Typography>
       </HeaderContainer>
 
       <Container>

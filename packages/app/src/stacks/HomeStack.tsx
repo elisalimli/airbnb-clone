@@ -1,20 +1,29 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import {
   HomeParamList,
   HomeStackNavProps,
 } from "../types/navigations/HomeParamList";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useMeQuery } from "../generated/graphql";
+import { useMeQuery, useLogoutMutation } from "../generated/graphql";
 
 const Stack = createNativeStackNavigator<HomeParamList>();
 
 const Feed: React.FC<HomeStackNavProps<"Feed">> = ({ navigation }) => {
   const [{ data }] = useMeQuery();
+  const [{}, logout] = useLogoutMutation();
 
   return (
     <View>
-      <Text>Feed section {data?.me?.username}</Text>
+      <Text>Feed section | user: {data?.me?.username}</Text>
+      <TouchableOpacity
+        onPress={async () => {
+          const res = await logout();
+          console.log("res", res);
+        }}
+      >
+        <Text>press me for logout</Text>
+      </TouchableOpacity>
     </View>
   );
 };

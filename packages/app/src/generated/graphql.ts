@@ -79,6 +79,11 @@ export type RegistrationFragmentFragment = { __typename?: 'RegistrationResponse'
 
 export type UserFragmentFragment = { __typename?: 'User', id: string, username: string };
 
+export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LogoutMutation = { __typename?: 'Mutation', logout: boolean };
+
 export type RegisterMutationVariables = Exact<{
   input: RegisterInput;
 }>;
@@ -115,6 +120,15 @@ export const RegistrationFragmentFragmentDoc = gql`
 }
     ${ErrorFragmentFragmentDoc}
 ${UserFragmentFragmentDoc}`;
+export const LogoutDocument = gql`
+    mutation Logout {
+  logout
+}
+    `;
+
+export function useLogoutMutation() {
+  return Urql.useMutation<LogoutMutation, LogoutMutationVariables>(LogoutDocument);
+};
 export const RegisterDocument = gql`
     mutation Register($input: RegisterInput!) {
   register(input: $input) {

@@ -2,9 +2,12 @@ import { registerSchema } from "@abb/common";
 import { FormikSubmit, RegisterFormValues } from "@abb/controller";
 import { Formik } from "formik";
 import React from "react";
-import { Button } from "react-native";
+import { Text } from "react-native";
 import styled from "styled-components/native";
+import Box from "../../components/Box";
+import Button from "../../ui/Form/Button";
 import InputField from "../../ui/Form/InputField";
+import Typography from "../../ui/Typography";
 import { theme } from "../../utils/theme";
 
 interface Props {
@@ -14,7 +17,7 @@ interface Props {
 type ButtonOnPress = any;
 
 const FormContainer = styled.View`
-  padding: ${theme.spacing[4]};
+  padding: ${theme.spacing[4]}px;
 `;
 
 const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
@@ -46,7 +49,13 @@ const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
             placeholder="Enter your password"
             secureTextEntry
           />
-          <Button onPress={handleSubmit as ButtonOnPress} title="Submit" />
+          {/* <Button onPress={handleSubmit as ButtonOnPress} title="Submit" /> */}
+
+          <Box center style={{ marginTop: theme.spacing[2] }}>
+            <Button style={{ width: "75%" }}>
+              <Typography color="white">Create new account</Typography>
+            </Button>
+          </Box>
         </FormContainer>
       )}
     </Formik>

@@ -16,7 +16,7 @@ import {
 import styled from "styled-components/native";
 import { theme } from "../../utils/theme";
 import { withProps } from "../../utils/withProps";
-import Flex from "../Flex";
+import Box from "../../components/Box";
 
 type OnBlurType =
   | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
@@ -30,8 +30,8 @@ type InputFieldProps = {
 } & TextInputProps;
 
 const TextInput = styled.TextInput`
-  padding: ${theme.spacing[2]};
-  border-radius: ${theme.borderRadius[5]};
+  padding: ${theme.spacing[2]}px;
+  border-radius: ${theme.borderRadius[5]}px;
   color: ${theme.colors.gray[800]};
 `;
 
@@ -50,9 +50,9 @@ const Container = withProps<IconProps>()(styled.View)`
         ? theme.colors.danger
         : theme.colors.primary
       : theme.colors.gray[600]};
-  border-radius: ${theme.borderRadius[5]};
-  padding-left: ${theme.spacing[3]};
-  margin-bottom: ${theme.spacing[4]};
+  border-radius: ${theme.borderRadius[5]}px;
+  padding-left: ${theme.spacing[3]}px;
+  margin-bottom: ${theme.spacing[4]}px;
 `;
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -70,7 +70,7 @@ const InputField: React.FC<InputFieldProps> = ({
       : theme.colors.primary
     : theme.colors.gray[600];
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(fieldName === "password");
 
   const onFocusContainer = () => inputRef.current.focus();
 
@@ -79,7 +79,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <Container touched={touched} isError={isError}>
         <Feather name={iconName} size={16} color={theme.colors.gray[700]} />
 
-        <Flex flex={1}>
+        <Box style={{ flex: 1 }}>
           <TextInput
             ref={inputRef}
             value={value}
@@ -89,10 +89,10 @@ const InputField: React.FC<InputFieldProps> = ({
             {...(props as any)}
             secureTextEntry={show}
           />
-        </Flex>
+        </Box>
 
         {touched && fieldName !== "password" ? (
-          <Flex flex={0.1}>
+          <Box style={{ flex: 0.1 }}>
             <View
               style={{
                 backgroundColor: color,
@@ -109,14 +109,14 @@ const InputField: React.FC<InputFieldProps> = ({
                 color={theme.colors.gray[300]}
               />
             </View>
-          </Flex>
+          </Box>
         ) : null}
         {fieldName === "password" ? (
-          <Flex flex={0.15}>
+          <Box style={{ flex: 0.15 }}>
             <TouchableOpacity onPress={() => setShow(!show)}>
               <Text>Show</Text>
             </TouchableOpacity>
-          </Flex>
+          </Box>
         ) : null}
       </Container>
     </TouchableWithoutFeedback>
