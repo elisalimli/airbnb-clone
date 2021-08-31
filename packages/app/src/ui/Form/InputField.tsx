@@ -63,21 +63,23 @@ const InputField: React.FC<InputFieldProps> = ({
   const [{ onBlur, onChange, value }, { error, touched }] = useField(fieldName);
   const inputRef = useRef<any>();
   // @todo use memo for this
-  const isError: boolean = error && touched;
+  const isError = error && touched;
   const color = touched
     ? isError
       ? theme.colors.danger
       : theme.colors.primary
     : theme.colors.gray[600];
 
-  const [show, setShow] = useState(fieldName === "password");
+  const isSecure = props?.secureTextEntry;
+
+  const [show, setShow] = useState(isSecure);
 
   const onFocusContainer = () => inputRef.current.focus();
 
   return (
     <TouchableWithoutFeedback onPress={onFocusContainer}>
       <Container touched={touched} isError={isError}>
-        <Feather name={iconName} size={16} color={theme.colors.gray[700]} />
+        <Feather name={iconName} size={16} color={color} />
 
         <Box style={{ flex: 1 }}>
           <TextInput
@@ -85,19 +87,20 @@ const InputField: React.FC<InputFieldProps> = ({
             value={value}
             onChangeText={onChange(fieldName) as OnChangeTextType}
             onBlur={onBlur(fieldName) as OnBlurType}
-            placeholderTextColor={theme.colors.gray[800]}
+            placeholderTextColor={color}
+            style={{ color }}
             {...(props as any)}
             secureTextEntry={show}
           />
         </Box>
 
-        {touched && fieldName !== "password" ? (
-          <Box style={{ flex: 0.1 }}>
+        <Box style={{ flex: 0.1 }}>
+          {touched && !isSecure && (
             <View
               style={{
                 backgroundColor: color,
-                width: 20,
-                height: 20,
+                width: 16,
+                height: 16,
                 borderRadius: 999,
                 justifyContent: "center",
                 alignItems: "center",
@@ -109,15 +112,17 @@ const InputField: React.FC<InputFieldProps> = ({
                 color={theme.colors.gray[300]}
               />
             </View>
-          </Box>
-        ) : null}
-        {fieldName === "password" ? (
-          <Box style={{ flex: 0.15 }}>
+          )}
+          {isSecure && (
             <TouchableOpacity onPress={() => setShow(!show)}>
-              <Text>Show</Text>
+              <Feather
+                name={show ? "eye" : "eye-off"}
+                size={16}
+                color={theme.colors.darkGrey}
+              />
             </TouchableOpacity>
-          </Box>
-        ) : null}
+          )}
+        </Box>
       </Container>
     </TouchableWithoutFeedback>
   );

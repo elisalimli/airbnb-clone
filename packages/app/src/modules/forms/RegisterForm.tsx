@@ -2,7 +2,16 @@ import { registerSchema } from "@abb/common";
 import { FormikSubmit, RegisterFormValues } from "@abb/controller";
 import { Formik } from "formik";
 import React from "react";
-import { Text } from "react-native";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import styled from "styled-components/native";
 import Box from "../../components/Box";
 import Button from "../../ui/Form/Button";
@@ -33,26 +42,38 @@ const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
     >
       {({ handleSubmit }) => (
         <FormContainer>
-          <InputField
-            iconName="user"
-            fieldName="username"
-            placeholder="Enter your username"
-          />
-          <InputField
-            iconName="mail"
-            fieldName="email"
-            placeholder="Enter your email"
-          />
-          <InputField
-            iconName="lock"
-            fieldName="password"
-            placeholder="Enter your password"
-            secureTextEntry
-          />
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View>
+                <InputField
+                  iconName="user"
+                  fieldName="username"
+                  placeholder="Enter your username"
+                />
+                <InputField
+                  iconName="mail"
+                  fieldName="email"
+                  placeholder="Enter your email"
+                />
+                <InputField
+                  iconName="lock"
+                  fieldName="password"
+                  placeholder="Enter your password"
+                  secureTextEntry
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
+
           {/* <Button onPress={handleSubmit as ButtonOnPress} title="Submit" /> */}
 
           <Box center style={{ marginTop: theme.spacing[2] }}>
-            <Button style={{ width: "75%" }}>
+            <Button
+              onPress={handleSubmit as ButtonOnPress}
+              style={{ width: "75%" }}
+            >
               <Typography color="white">Create new account</Typography>
             </Button>
           </Box>
