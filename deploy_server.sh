@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# add the following lines to "users/:name:/.ssh/config" 
+#Host blog
+#Hostname http://ip.ip.ip.ip/
+#Port 22
+#User root
+
+#
+#
+#
 echo What should be the version ?
 read VERSION
 
